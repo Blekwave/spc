@@ -1,3 +1,9 @@
+/**
+ * Calcula a soma de dois fatoriais através de uma função que calcula o
+ * fatorial iterativamente, começando do maior número e multiplicando até o
+ * menor deles.
+ */
+
 #include <stdio.h>
 
 long long fac(int n) {
