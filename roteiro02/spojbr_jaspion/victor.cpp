@@ -1,3 +1,9 @@
+// A solução consiste de duas etapas. A primeira lê as palavras em japonês e a
+// tradução para o português e guarda essa relação em um Map. A segunda parte
+// do programa lê cada verso da letra e itera pelas palavras do verso. Cada pa-
+// lavra é checada contra o dicionário. Se ela existe no dicionário, sua tradu-
+// ção é impressa, caso contrário a palavra em si é impressa.
+
 #include <iostream>
 #include <map>
 #include <string>
