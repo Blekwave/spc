@@ -1,0 +1,3 @@
+Inicialmente, os relatórios contém apenas a lista de arquivos de cada semana.
+O plano é colocar as descrições das soluções nesses arquivos para o envio no
+fim da etapa.
