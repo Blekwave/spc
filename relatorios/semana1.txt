@@ -1,0 +1,8 @@
+spojbr_minhoca.cpp
+spojbr_obihanoi.cpp
+spojbr_paprimas.cpp
+spojbr_querm.cpp
+uri_1041.c
+uri_1080.cpp
+uri_1161.c
+uri_1542.c
