@@ -34,3 +34,9 @@
 *.exe
 *.out
 *.app
+
+# regras pra arquivos gerados por sistemas
+# da Apple
+
+.DS_Store
+.localized
