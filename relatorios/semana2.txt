@@ -1,0 +1,8 @@
+livearchive_5060.cpp
+spojbr_aliensmg.cpp
+spojbr_eleicoes.cpp
+spojbr_impedido.cpp
+spojbr_jaspion.cpp
+spojbr_placar.cpp
+spoj_bsearch1.cpp
+uri_1472_triangulos.cpp
