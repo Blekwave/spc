@@ -3,16 +3,14 @@
 #include <list>
 #include <map>
 
-typedef std::list<std::string>::iterator listIter;
-typedef std::map<std::string, std::list<std::string> >::iterator mapIter;
-
 int main() {
     std::string name, nameRequired;
     int N, M, nTest = 1;
 
     while(true) {
         std::cin >> N;
-        if(N == 0) break;
+        if(N == 0)     break;
+        if(nTest != 1) std::cout << "\n";
 
         std::map<std::string, std::list<std::string> > adjList;
         std::queue<std::string> zeroInDegree, result;
@@ -31,10 +29,10 @@ int main() {
             }
         }
 
-        for(mapIter i = adjList.begin(); i != adjList.end(); i++) {
-            if(i->second.empty()) {
-                zeroInDegree.push(i->first);
-                adjList.erase(i);
+        for(auto elem = adjList.begin(); elem != adjList.end(); elem++) {
+            if(elem->second.empty()) {
+                zeroInDegree.push(elem->first);
+                adjList.erase(elem);
             }
         }
 
@@ -44,8 +42,8 @@ int main() {
 
             result.push(name);
 
-            for(mapIter currFriend = adjList.begin(); currFriend != adjList.end(); currFriend++) {
-                for(listIter req = currFriend->second.begin(); req != currFriend->second.end(); req++) {
+            for(auto currFriend = adjList.begin(); currFriend != adjList.end(); currFriend++) {
+                for(auto req = currFriend->second.begin(); req != currFriend->second.end(); req++) {
                     if(*req == name) {
                         currFriend->second.erase(req);
                         break;
@@ -67,7 +65,7 @@ int main() {
             std::cout << "impossivel";
         }
 
-        std::cout << "\n\n";
+        std::cout << "\n";
 
         nTest++;
     }
