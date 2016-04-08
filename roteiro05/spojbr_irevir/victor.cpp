@@ -16,17 +16,34 @@ struct Graph {
         }
     }
 
+    void setArc(int from, int to, bool value = true){
+        if (matrix[from][to] != value){
+            arcs += value + -1 * (not value);
+            matrix[from][to] = value;
+        }
+    }
+
+    Graph transposeSimple(){
+        Graph t(vertices);
+        for (int i = 0; i < vertices; i++){
+            for (int j = 0; j < vertices; j++){
+                if (matrix[i][j]){
+                    t.setArc(j, i);
+                }
+            }
+        }
+        return t;
+    }
+
     static Graph fromStdin(int n, int m){
         Graph g(n);
         for (int i = 0; i < m; i++){
             int from, to, num_ways; // num_ways == 1 -> one-way, 2 -> two-way
             std::cin >> from >> to >> num_ways;
             from--; to--; // these are 1-indexed in the test data
-            g.matrix[from][to] = true;
-            arcs++;
+            g.setArc(from, to);
             if (num_ways == 2){
-                g.matrix[to][from] = true;
-                arcs++;
+                g.setArc(to, from);
             }
         }
         return g;
@@ -34,27 +51,32 @@ struct Graph {
 
 };
 
-void recurseDFS(Graph &g, int v, std::vector<bool> &visited, int &last_visited){
+void recurseDFS(Graph &g, int v, std::vector<bool> &visited){
     visited[v] = true;
-    last_visited = v;
 
     for (int w = 0; w < g.vertices; w++){
         if (g.matrix[v][w] and not visited[w]){ // w is a successor of v
-            recurseDFS(g, w, visited, last_visited);
+            recurseDFS(g, w, visited);
         }
     }
 }
 
-bool canReachAllFrom(Graph &g, int v, int &last_visited){
+bool canReachAllFrom(Graph &g, int v){
     std::vector<bool> visited(g.vertices, false);
-    recurseDFS(g, v, visited, last_visited);
+    recurseDFS(g, v, visited);
     return std::all_of(visited.begin(), visited.end(), [](bool b){return b;});
 }
 
+const int STARTING_VERTEX = 0; // There's always a vertex 0
 bool isStronglyConnected(Graph &g){
-    int last_visited, dummy;
-    return canReachAllFrom(g, 0, last_visited) and
-        canReachAllFrom(g, last_visited, dummy);
+    if (canReachAllFrom(g, STARTING_VERTEX)){
+        Graph transpose = g.transposeSimple();
+        // Since the procedure would have failed already if the first DFS
+        // couldn't reach any of the vertices, it can safely be assumed that
+        // the last vertex to be closed was the starting vertex. (Kosaraju)
+        return canReachAllFrom(transpose, STARTING_VERTEX);
+    }
+    return false;
 }
 
 int main(){
