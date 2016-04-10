@@ -1,4 +1,6 @@
+#include <algorithm>
 #include <iostream>
+#include <vector>
 #include <queue>
 #include <list>
 #include <map>
@@ -8,16 +10,16 @@ int main() {
     int N, M, nTest = 1;
 
     while(std::cin >> N) {
-        if(nTest != 1) std::cout << "\n";
 
         std::map<std::string, std::list<std::string> > adjList;
+        std::queue<std::string> result;
+        std::vector<int> zeroInDegree;
         std::vector<std::string> names;
-        std::queue<std::string> zeroInDegree, result;
 
         for(int i = 0; i < N; i++) {
             std::cin >> name;
-            adjList[name] = std::list<std::string>();
             names.push_back(name);
+            adjList[name] = std::list<std::string>();
         }
         std::cin >> M;
         for(int i = 0; i < M; i++) {
@@ -28,29 +30,32 @@ int main() {
         for(int i = 0; i < N; i++) {
             auto elem = adjList[names[i]];
             if(elem.empty()) {
-                zeroInDegree.push(names[i]);
+                zeroInDegree.push_back(i);
                 adjList.erase(names[i]);
             }
         }
+        std::sort(zeroInDegree.rbegin(), zeroInDegree.rend());
 
         while(!zeroInDegree.empty()) {
-            name = zeroInDegree.front();
-            zeroInDegree.pop();
+            int index = zeroInDegree.back();
+            name = names[index];
+            zeroInDegree.pop_back();
 
             result.push(name);
 
             for(int i = 0; i < N; i++) {
-                auto currBev = adjList[names[i]];
-                if(currBev.empty()) continue;
-                for(auto req = currBev.begin(); req != currBev.end(); req++) {
+                auto& currFriend = adjList[names[i]];
+                if(currFriend.empty()) continue;
+                for(auto req = currFriend.begin(); req != currFriend.end(); req++) {
                     if(*req == name) {
-                        currBev.erase(req);
+                        currFriend.erase(req);
                         break;
                     }
                 }
-                if(currBev.empty()) {
-                    zeroInDegree.push(names[i]);
+                if(currFriend.empty()) {
+                    zeroInDegree.push_back(i);
                     adjList.erase(names[i]);
+                    std::sort(zeroInDegree.rbegin(), zeroInDegree.rend());
                 }
             }
         }
