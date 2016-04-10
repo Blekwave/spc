@@ -43,9 +43,7 @@ int main() {
                 auto currBev = adjList[names[i]];
                 if(currBev.empty()) continue;
                 for(auto req = currBev.begin(); req != currBev.end(); req++) {
-                    std::cout << "Requisito " << *req << " de " << names[i] << ": " << name << "\n";
                     if(*req == name) {
-                        std::cout << "req == name\n";
                         currBev.erase(req);
                         break;
                     }

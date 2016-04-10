@@ -14,11 +14,13 @@ int main() {
 
         std::map<std::string, std::list<std::string> > adjList;
         std::queue<std::string> zeroInDegree, result;
+        std::vector<std::string> names;
 
         std::cout << "Teste " << nTest << "\n";
 
         for(int i = 0; i < N; i++) {
             std::cin >> name;
+            names.push_back(name);
             adjList[name] = std::list<std::string>();
         }
         for(int i = 0; i < N; i++) {
@@ -29,10 +31,11 @@ int main() {
             }
         }
 
-        for(auto elem = adjList.begin(); elem != adjList.end(); elem++) {
-            if(elem->second.empty()) {
-                zeroInDegree.push(elem->first);
-                adjList.erase(elem);
+        for(int i = 0; i < N; i++) {
+            auto elem = adjList[names[i]];
+            if(elem.empty()) {
+                zeroInDegree.push(names[i]);
+                adjList.erase(names[i]);
             }
         }
 
@@ -42,16 +45,18 @@ int main() {
 
             result.push(name);
 
-            for(auto currFriend = adjList.begin(); currFriend != adjList.end(); currFriend++) {
-                for(auto req = currFriend->second.begin(); req != currFriend->second.end(); req++) {
+            for(int i = 0; i < N; i++) {
+                auto& currFriend = adjList[names[i]];
+                if(currFriend.empty()) continue;
+                for(auto req = currFriend.begin(); req != currFriend.end(); req++) {
                     if(*req == name) {
-                        currFriend->second.erase(req);
+                        currFriend.erase(req);
                         break;
                     }
                 }
-                if(currFriend->second.empty()) {
-                    zeroInDegree.push(currFriend->first);
-                    adjList.erase(currFriend);
+                if(currFriend.empty()) {
+                    zeroInDegree.push(names[i]);
+                    adjList.erase(names[i]);
                 }
             }
         }

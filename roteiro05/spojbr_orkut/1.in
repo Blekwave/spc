@@ -10,4 +10,28 @@ Joao Maria Renata
 Maria 1 Joao
 Joao 1 Renata
 Renata 1 Maria
+3
+vodka wine beer
+vodka 1 wine
+wine 1 beer
+beer 0
+5
+wine beer rum apple-juice cachaca
+cachaca 2 beer wine
+beer 1 apple-juice
+rum 2 apple-juice beer
+wine 1 beer
+apple-juice 0
+10
+cachaca rum apple-juice tequila whiskey wine vodka beer martini gin
+cachaca 1 rum 
+rum 1 beer
+apple-juice 0
+tequila 2 beer vodka
+whiskey 2 beer wine
+wine 0
+vodka 1 wine
+beer 1 apple-juice
+martini 1 apple-juice
+gin 2 rum apple-juice
 0
