@@ -1,3 +1,20 @@
+/*
+
+    Para resolver esse problema, recebemos as exigências de
+    cada amigo. Armazenamos o grafo de exigências em uma
+    lista de adjacências. Realizamos a ordenação topológica
+    da seguinte forma: Passamos por todos os vértices e
+    armazenamos aqueles nos quais não incidem arestas em uma
+    fila. Ordenamos essa fila por ordem de entrada, e pegamos
+    o primeiro elemento dessa fila, colocando-o na lista já
+    ordenada. Retiramos esse elemento da lista de exigências
+    dos outros amigos, e repetimos o processo até que não hajam
+    mais elementos sem arestas incidentes. Caso a lista de resultados
+    tenha todos os amigos informados, exibimos essa lista na
+    saída. Do contrário, exibimos a palavra "impossivel".
+
+*/
+
 #include <iostream>
 #include <queue>
 #include <list>
