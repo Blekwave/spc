@@ -1,0 +1,8 @@
+spojbr_duende.cpp
+spojbr_irevir.cpp
+spojbr_mesa.cpp
+spojbr_natureza.cpp
+spojbr_orkut.cpp
+spojbr_pedagio.cpp
+uri_1469.cpp
+UVa_11060.cpp

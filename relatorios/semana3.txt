@@ -1,0 +1,8 @@
+spoj_allizzwell.cpp
+spoj_invcnt.cpp
+spojbr_assaltmg.cpp
+spojbr_banda09.cpp
+spojbr_domino.cpp
+spojbr_junina.cpp
+spojbr_megadama.cpp
+spojbr_tesour11.cpp
