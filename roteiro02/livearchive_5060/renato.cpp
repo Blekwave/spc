@@ -1,3 +1,13 @@
+/**
+ * Para resolver esse problema, uma fila de competidores foi usada. Inicialmente,
+ * todos os competidores são puxados à fila, e aí a fila é esvaziada retirando
+ * de 2 em dois contestantes, fazendo-os lutar, verificando o vencedor e aí
+ * inserindo o vencedor novamente na fila. No final, a fila vai ser esvaziada
+ * e só um vencedor vai sobrar, que é o vencedor imprimido na saída.
+ * Além disso, também é salvo na estrutura do competidor de quem ele ganhou,
+ * pois isso é necessário para a resposta final.
+ */
+
 #include <iostream>
 #include <cmath>
 #include <queue>
