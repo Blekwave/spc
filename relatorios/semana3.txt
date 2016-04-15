@@ -1,8 +1,79 @@
 spoj_allizzwell.cpp
+Autor: Renato
+Usuário:
+Solução:
+Resolvi esse problema usando uma matriz. Inicialmente leio todas as letras
+para a matriz e aí utilizo depth first search, checando em todos os elementos
+ao redor de um nó, para ver se encontro o próximo. Também marco cada elemento
+que foi visitado para não repetir letras que já foram usadas.
+Chamo o algoritmo de DFS iniciando em cada elemento da matriz, para ver se em
+ao menos um dos elementos a string é encontrada.
+
 spoj_invcnt.cpp
+Autor: Renato
+Usuário:
+Solução:
+Esse problema foi resolvido usando o algoritmo MergeSort: aproveitamos que é
+possível contar a quantidade de inversões enquanto executamos o MergeSort,
+pois é possível contar quantas inversões há em um bloco no passo de merge do
+MergeSort de maneira eficiente. Como o MergeSort executa em O(nlogn), em que n
+é o tamanho da array, o algoritmo de cálculo de quantidade de inversões tem
+essa complexidade.
+Esse problema, portanto, foi um exemplo de Divisão e Conquista, paradigma
+empregado no MergeSort top down.
+
 spojbr_assaltmg.cpp
+Autor: Victor
+Usuário: Blek
+Solução:
+
 spojbr_banda09.cpp
+Autor: Jonatas
+Usuário:
+Solução:
+
 spojbr_domino.cpp
+Autor: Victor
+Usuário: Blek
+Solução:
+
 spojbr_junina.cpp
+Autor: Lucas
+Usuário:
+Solução:
+Para cada caso de teste, construímos um grafo onde cada
+aluno é um vértice, e para dois alunos A e B, só existe
+uma aresta entre eles caso A e B não tenham inimizade.
+A seguir, entre todos os grupos testamos quais podem
+existir sem que pessoas inimigas fiquem juntas. Não
+testamos todas as possibilidades, pois se temos dois
+alunos A e B que tem inimizade, não há necessidade de
+testar nenhum grupo que contenha ambos os alunos.
+Para percorrer os grupos utilizamos um processo de backtracking,
+onde as escolhas consistem em adicionar ou não determinado aluno.
+Armazenamos as linhas da matriz de adjacência do grafo e
+os grupos testados como um número inteiro de 32 bits, e
+utilizamos operações bitwise para operar sobre esses valores.
+Por fim, é importante notar que da forma como foi construído,
+esse algoritmo consiste em encontrar a maior clique em um grafo.
+
 spojbr_megadama.cpp
+Autor: Lucas
+Usuário:
+Solução:
+Armazenamos o tabuleiro em uma matriz. As posições
+das nossas peças também são armazenadas em um vetor
+para facilitar sua varredura. Para cada peça nossa
+existente, utilizamos backtracking para checar todas
+as formas possíveis de movimentá-la: Usamos uma função
+recursiva que move uma peça para uma posição e chama a si
+mesma para cada movimento possível restante. Caso
+não haja nenhum movimento restante, a função retorna 0,
+indicando que não é possível ganhar mais nenhuma peça a
+partir dali. Do contrário, retorna a quantidade de peças
+que podem ser ganhas a partir dessa posição.
+
 spojbr_tesour11.cpp
+Autor: Jonatas
+Usuário:
+Solução:

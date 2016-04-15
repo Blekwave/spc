@@ -1,3 +1,7 @@
+// A solução para o problema consiste em verificar o maior valor dentre as
+// somas de cada coluna e de cada linha. O maior valor encontrado corresponde
+// ao maior número de minhocas que pode ser coletado.
+
 #include <iostream>
 #include <vector>
 

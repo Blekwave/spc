@@ -1,8 +1,73 @@
 spojbr_minhoca.cpp
+Autor: Victor
+Usuário: Blek
+Solução:
+A solução para o problema consiste em verificar o maior valor dentre as
+somas de cada coluna e de cada linha. O maior valor encontrado corresponde
+ao maior número de minhocas que pode ser coletado.
+
 spojbr_obihanoi.cpp
+Autor: Victor
+Usuário: Blek
+Solução:
+A estratégia ótima para resolver o problema da Torre de Hanoi envolve o
+seguinte algoritmo recursivo. Assumindo que os mastros sejam nomeados como
+A, B e C, um disco com n - 1 discos acima dele pode ser movido de A para C
+da seguinte maneira:
+- Move n - 1 discos de A para B
+- Move o disco de A para C
+- Move os n - 1 discos de B para C.
+O número de passos, expandindo a recorrência que surge, necessário para ter-
+minar o algoritmo equivale a 2^1 + 2^2 + ... + 2^(n - 1) = 2 ^ n - 1 passos.
+Dessa maneira, o programa escrito calcula o valor de 2 ^ n - 1.
+
 spojbr_paprimas.cpp
+Autor: Lucas
+Usuário:
+Solução:
+Como o maior valor possível de entrada
+é uma string de 20 caracteres composta
+pela letra Z (valor 1040), podemos calcular
+todos os números primos até a raiz de 1040,
+e para testar a primalidade das strings recebidas
+basta tentar dividí-las por todos os números
+primos calculados.
+
 spojbr_querm.cpp
+Autor: Lucas
+Usuário:
+Solução:
+Para cada caso de teste o programa lê os ingressos
+na ordem e assim que encontra um valor igual ao número
+de ingressos checados até o momento, exibe-o na saída
+e passa para o próximo teste.
+
 uri_1041.c
+Autor: Jonatas
+Usuário:
+Solução:
+
+
 uri_1080.cpp
+Autor: Renato
+Usuário:
+Solução:
+Para resolver esse problema, eu usei duas variáveis para salvar o maior
+número e a sua posição, e sempre que encontrasse um número maior eu salvo
+esses dados. Inicializo o maior número como INT_MIN, então sempre vai ser
+possível achar um maior.
+
 uri_1161.c
+Autor: Renato
+Usuário:
+Solução:
+Calcula a soma de dois fatoriais através de uma função que calcula o
+fatorial iterativamente, começando do maior número e multiplicando até o
+menor deles.
+
 uri_1542.c
+Autor: Jonatas
+Usuário:
+Solução:
+
+

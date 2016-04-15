@@ -1,3 +1,15 @@
+// A estratégia ótima para resolver o problema da Torre de Hanoi envolve o
+// seguinte algoritmo recursivo. Assumindo que os mastros sejam nomeados como
+// A, B e C, um disco com n - 1 discos acima dele pode ser movido de A para C
+// da seguinte maneira:
+// - Move n - 1 discos de A para B
+// - Move o disco de A para C
+// - Move os n - 1 discos de B para C.
+// O número de passos, expandindo a recorrência que surge, necessário para ter-
+// minar o algoritmo equivale a 2^1 + 2^2 + ... + 2^(n - 1) = 2 ^ n - 1 passos.
+//
+// Dessa maneira, o programa escrito calcula o valor de 2 ^ n - 1.
+
 #include <iostream>
 
 long long exp2(int exponent){

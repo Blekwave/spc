@@ -1,3 +1,13 @@
+// Dada a circunferência, é sabido que, para que possa haver um triângulo equi-
+// látero formado por vértices situados na mesma, é necessário que a distância
+// entre vértices adjacentes seja de circunferência/3.
+// Portanto, após calcular o valor da circunferência total, o programa itera
+// pelos vértices e verifica se há vértices nas posições v + c/3 e v + 2c/3,
+// sendo v a posição do vértice inicial e c o valor da circunferência. Se isso
+// ocorre, um triângulo pode ser formado.
+// É importante cautela para evitar que o mesmo triângulo seja contado mais de
+// uma vez.
+
 #include <iostream>
 #include <map>
 #include <vector>

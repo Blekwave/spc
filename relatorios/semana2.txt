@@ -1,8 +1,83 @@
 livearchive_5060.cpp
+Autor: Renato
+Usuário:
+Solução:
+
 spojbr_aliensmg.cpp
+Autor: Renato
+Usuário:
+Solução:
+Esse problema foi resolvido utilizando sets: é uma estrutura de dados da
+STL normalmente implementada como uma binary search tree.
+Para resolver o problema, para cada DNA de entrada, esse DNA é ordenado
+e adicionado ao set de DNAs. Esse set não aceita valores repetidos e,
+portanto, se tentarmos adicionar uma string já existente ao set ele
+simplesmente retornará uma referência à string já presente e não adicionará
+mais nada. Desse modo, no final do loop o número de elementos no set é o
+número de DNAs diferentes.
+
 spojbr_eleicoes.cpp
+Autor: Renato
+Usuário:
+Solução:
+Esse problema foi resolvido através de usar uma árvore binária
+para armazenar os votos, e iterar pela árvore binária para encontrar
+o concorrente com mais votos. Isso funciona pois é necessário iterar
+apenas pelo número de candidatos participantes, e não pelo número de
+votos.
+Foi utilizada a classe std::map, que é a implementação da STL de uma
+árvore binária (normalmente uma Red-Black Tree).
+
 spojbr_impedido.cpp
+Autor: Lucas
+Usuário:
+Solução:
+Armazenamos a distância do gol para o atacante
+mais próximo do gol e em seguida armazenamos a
+distância para todos os defensores. Ordenamos
+as distâncias dos defensores e comparamos a
+posição do penúltimo defensor com a do atacante
+mais próximo do gol.
+
 spojbr_jaspion.cpp
+Autor: Victor
+Usuário: Blek
+Solução:
+A solução consiste de duas etapas. A primeira lê as palavras em japonês e a
+tradução para o português e guarda essa relação em um Map. A segunda parte
+do programa lê cada verso da letra e itera pelas palavras do verso. Cada pa-
+lavra é checada contra o dicionário. Se ela existe no dicionário, sua tradu-
+ção é impressa, caso contrário a palavra em si é impressa.
+
 spojbr_placar.cpp
+Autor: Lucas
+Usuário:
+Solução:
+Armazenamos as notase os nomes dos alunos em
+um vetor de tuplas. Em seguida usamos a função
+sort da STL para ordenar o vetor. Para isso usamos
+uma função que ordena os alunos em ordem crescente
+de nota e descrescente de nomes.
+
 spoj_bsearch1.cpp
+Autor: Renato
+Usuário:
+Solução:
+Para resolver esse problema apenas usei busca binária (a função
+std::lower_bound é implementada com busca binária) para encontrar os
+resultados.
+
+
 uri_1472_triangulos.cpp
+Autor: Victor
+Usuário: Victor Pires Diniz
+Solução:
+Dada a circunferência, é sabido que, para que possa haver um triângulo equi-
+látero formado por vértices situados na mesma, é necessário que a distância
+entre vértices adjacentes seja de circunferência/3.
+Portanto, após calcular o valor da circunferência total, o programa itera
+pelos vértices e verifica se há vértices nas posições v + c/3 e v + 2c/3,
+sendo v a posição do vértice inicial e c o valor da circunferência. Se isso
+ocorre, um triângulo pode ser formado.
+É importante cautela para evitar que o mesmo triângulo seja contado mais de
+uma vez.
