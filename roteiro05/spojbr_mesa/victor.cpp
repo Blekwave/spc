@@ -1,3 +1,14 @@
+// O problema consiste em determinar se o grafo é bipartido ou não. Isso pode
+// ser feito tentando colorir o grafo com duas cores alternadamente. Se isso
+// se mostra impossível em algum momento, o grafo não pode ser bipartido.
+// Na prática, a coloração foi realizada através de um DFS que, ao encontrar um
+// novo vértice, colore esse vértice com a cor oposta à do vértice anterior. Se
+// o algoritmo encontra um vértice já colorido com a mesma cor do vértice atual,
+// isso significa que o novo vértice não pode ser colorido com a cor oposta do
+// atual. Portanto, o grafo não é bipartido. Se o DFS termina sem problemas, o
+// grafo é bipartido.
+
+
 #include <iostream>
 #include <vector>
 #include <queue>

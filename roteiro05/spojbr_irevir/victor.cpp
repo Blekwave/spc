@@ -1,5 +1,15 @@
 // O problema consiste em descobrir se há apenas um componente fortemente cone-
-// xo no grafo formado pelas interseções e ruas.
+// xo no grafo formado pelas interseções e ruas. Isso foi feito por meio do al-
+// goritmo de Kosaraju. Esse algoritmo realiza uma busca em profundidade no gra-
+// fo a partir de um vértice arbitrário e salva os vértices em uma lista quando
+// eles são fechados. Depois, é realizado outro DFS, partindo dos vértices na
+// ordem inversa à da lista gerada previamente. Se esse DFS revela apenas um
+// componente, há apenas um componente fortemente conectado no grafo.
+//
+// A implementação realizada é um pouco diferente. Não é necessário guardar a
+// lista de fechamento de vértices. Basta notar se o vértice que abriu a busca
+// é o mesmo a fechar por último. Depois, é realizado o DFS novamente partindo
+// desse mesmo vértice, conferindo o mesmo critério.
 
 #include <iostream>
 #include <vector>
