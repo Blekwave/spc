@@ -1,6 +1,6 @@
 livearchive_5060.cpp
 Autor: Renato
-Usuário:
+Usuário: RenatoUtsch
 Solução:
 Para resolver esse problema, uma fila de competidores foi usada. Inicialmente,
 todos os competidores são puxados à fila, e aí a fila é esvaziada retirando
@@ -12,7 +12,7 @@ pois isso é necessário para a resposta final.
 
 spojbr_aliensmg.cpp
 Autor: Renato
-Usuário:
+Usuário: renatoutsch
 Solução:
 Esse problema foi resolvido utilizando sets: é uma estrutura de dados da
 STL normalmente implementada como uma binary search tree.
@@ -25,7 +25,7 @@ número de DNAs diferentes.
 
 spojbr_eleicoes.cpp
 Autor: Renato
-Usuário:
+Usuário: renatoutsch
 Solução:
 Esse problema foi resolvido através de usar uma árvore binária
 para armazenar os votos, e iterar pela árvore binária para encontrar
@@ -68,7 +68,7 @@ de nota e descrescente de nomes.
 
 spoj_bsearch1.cpp
 Autor: Renato
-Usuário:
+Usuário: renatoutsch
 Solução:
 Para resolver esse problema apenas usei busca binária (a função
 std::lower_bound é implementada com busca binária) para encontrar os

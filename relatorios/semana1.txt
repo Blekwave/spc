@@ -50,7 +50,7 @@ Solução:
 
 uri_1080.cpp
 Autor: Renato
-Usuário:
+Usuário: 29916 (renatoutsch@gmail.com)
 Solução:
 Para resolver esse problema, eu usei duas variáveis para salvar o maior
 número e a sua posição, e sempre que encontrasse um número maior eu salvo
@@ -59,7 +59,7 @@ possível achar um maior.
 
 uri_1161.c
 Autor: Renato
-Usuário:
+Usuário: 29916 (renatoutsch@gmail.com)
 Solução:
 Calcula a soma de dois fatoriais através de uma função que calcula o
 fatorial iterativamente, começando do maior número e multiplicando até o

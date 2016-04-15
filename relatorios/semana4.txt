@@ -15,7 +15,7 @@ Solução:
 
 spojbr_natureza.cpp
 Autor: Renato
-Usuário:
+Usuário: renatoutsch
 Solução:
 Esse problema foi resolvido usando um map de strings (nome do animal) para
 um set de outras strings (animais aos quais o animal é ligado na cadeia
@@ -55,7 +55,7 @@ Solução:
 
 uri_1469.cpp
 Autor: Renato
-Usuário:
+Usuário: 29916 (renatoutsch@gmail.com)
 Solução:
 Esse problema foi resolvido adicionando as arestas dos nós de maneira invertida:
 a cada entrada de par de trabalhador e chefe, uma aresta era adicionada no sentido
