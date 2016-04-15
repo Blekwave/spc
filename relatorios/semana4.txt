@@ -62,7 +62,7 @@ ficar vazio e, finalmente, a maior das cadeias era impressa.
 
 spojbr_orkut.cpp
 Autor: Lucas
-Usuário:
+Usuário: lucasaug
 Solução:
 Para resolver esse problema, recebemos as exigências de
 cada amigo. Armazenamos o grafo de exigências em uma
@@ -106,7 +106,7 @@ time limit) simples encontra o chefe de menor idade.
 
 UVa_11060.cpp
 Autor: Lucas
-Usuário:
+Usuário: lucasaug
 Solução:
 
 

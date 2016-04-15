@@ -23,7 +23,7 @@ Dessa maneira, o programa escrito calcula o valor de 2 ^ n - 1.
 
 spojbr_paprimas.cpp
 Autor: Lucas
-Usuário:
+Usuário: lucasaug
 Solução:
 Como o maior valor possível de entrada
 é uma string de 20 caracteres composta
@@ -35,7 +35,7 @@ primos calculados.
 
 spojbr_querm.cpp
 Autor: Lucas
-Usuário:
+Usuário: lucasaug
 Solução:
 Para cada caso de teste o programa lê os ingressos
 na ordem e assim que encontra um valor igual ao número

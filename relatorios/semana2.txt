@@ -37,7 +37,7 @@ Foi utilizada a classe std::map, que é a implementação da STL de uma
 
 spojbr_impedido.cpp
 Autor: Lucas
-Usuário:
+Usuário: lucasaug
 Solução:
 Armazenamos a distância do gol para o atacante
 mais próximo do gol e em seguida armazenamos a
@@ -58,7 +58,7 @@ lavra é checada contra o dicionário. Se ela existe no dicionário, sua tradu-
 
 spojbr_placar.cpp
 Autor: Lucas
-Usuário:
+Usuário: lucasaug
 Solução:
 Armazenamos as notase os nomes dos alunos em
 um vetor de tuplas. Em seguida usamos a função

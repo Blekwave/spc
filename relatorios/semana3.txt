@@ -60,7 +60,7 @@ grama recua a estados anteriores, desfazendo as jogadas realizadas.
 
 spojbr_junina.cpp
 Autor: Lucas
-Usuário:
+Usuário: lucasaug
 Solução:
 Para cada caso de teste, construímos um grafo onde cada
 aluno é um vértice, e para dois alunos A e B, só existe
@@ -80,7 +80,7 @@ esse algoritmo consiste em encontrar a maior clique em um grafo.
 
 spojbr_megadama.cpp
 Autor: Lucas
-Usuário:
+Usuário: lucasaug
 Solução:
 Armazenamos o tabuleiro em uma matriz. As posições
 das nossas peças também são armazenadas em um vetor
