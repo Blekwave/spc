@@ -26,16 +26,37 @@ spojbr_assaltmg.cpp
 Autor: Victor
 Usuário: Blek
 Solução:
+A solução proposta itera por todas as combinações possíveis de diretores,
+em ordem crescente de tamanho da combinação. Para cada combinação, é feita
+a união do conjunto de chaves dos diretores combinados através de operações
+bit-a-bit. Caso a união tenha o número de chaves necessário, esse valor é
+impresso. Se nenhuma combinação consegue cumprir esse valor, é impossível
+abrir o cofre.
 
 spojbr_banda09.cpp
 Autor: Jonatas
-Usuário:
+Usuário: Jonatas Cavalcante
 Solução:
+Para solucionar esse problema, a partir da entrada, é montada uma matriz de
+adjacência, onde o valor da posição [i][j] da matriz armazena o grau afinidade
+dos cantores de índice i+1, j+1. Após isso, o algoritmo percorre todas as pos-
+sivéis combinações de três cantores, através de três laços for, e armazenando
+os indíces que representam os três cantores com maior afinidade encontrada.
+E, após percorrer todas essas posições, o programa imprime os mesmos na saída.
 
 spojbr_domino.cpp
 Autor: Victor
 Usuário: Blek
 Solução:
+A solução proposta cria um mapeamento entre cada peça de dominó (ou seja, o
+par de valores impresso na sua face) e o seu identificador numérico.
+Posteriormente, é lida a matriz de valores dispostos no tabuleiro e o pro-
+grama tenta, por meio de força bruta com backtracking, dispor peças de domi-
+nó de todas as formas possíveis.
+Caso o programa consiga preencher o tabuleiro até o final, sem contradições
+ou repetição de peças, é somado 1 ao contador de tabuleiros válidos. Caso
+contrário, no momento em que não há configurações válidas de peças, o pro-
+grama recua a estados anteriores, desfazendo as jogadas realizadas.
 
 spojbr_junina.cpp
 Autor: Lucas
@@ -75,5 +96,17 @@ que podem ser ganhas a partir dessa posição.
 
 spojbr_tesour11.cpp
 Autor: Jonatas
-Usuário:
+Usuário: Jonatas Cavalcante
 Solução:
+Para solucionar esse problema, a partir da entrada, é montada uma matriz de ad-
+jacência, e cada posição da matriz possui um valor D, que representa a quanti-
+dade de passos de capitão que a posição corrente possui, sendo que esse valor
+é passado na entrada e, caso a posição não tenha nenhum peso na entrada, ela
+vale 0. Além disso, há também um vetor de pares que armazena as pistas passadas
+na entrada no programa. Após armazenar os dados da entrada nas estruturas men-
+cionadas, o algoritmo percorre, através de três laços for alinhados, cada uma
+das posições, que não fazem parte do vetor de pistas, e calcula sua distância
+para cada uma das pistas. Caso o valor calculado coincida com o valor D da po-
+sição, essa posição é uma possível localização do tesouro e ela é decrementada.
+Ao fim do programa, é verificado se há apenas uma possível posição e, em caso
+afirmativo, ele retorna a posição da mesma. Caso contrário, é impresso -1, -1.
