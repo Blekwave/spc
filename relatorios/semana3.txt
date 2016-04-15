@@ -1,6 +1,6 @@
 spoj_allizzwell.cpp
 Autor: Renato
-Usuário:
+Usuário: renatoutsch
 Solução:
 Resolvi esse problema usando uma matriz. Inicialmente leio todas as letras
 para a matriz e aí utilizo depth first search, checando em todos os elementos
@@ -11,7 +11,7 @@ ao menos um dos elementos a string é encontrada.
 
 spoj_invcnt.cpp
 Autor: Renato
-Usuário:
+Usuário: renatoutsch
 Solução:
 Esse problema foi resolvido usando o algoritmo MergeSort: aproveitamos que é
 possível contar a quantidade de inversões enquanto executamos o MergeSort,
