@@ -1,3 +1,10 @@
+// A solução proposta itera por todas as combinações possíveis de diretores,
+// em ordem crescente de tamanho da combinação. Para cada combinação, é feita
+// a união do conjunto de chaves dos diretores combinados através de operações
+// bit-a-bit. Caso a união tenha o número de chaves necessário, esse valor é
+// impresso. Se nenhuma combinação consegue cumprir esse valor, é impossível
+// abrir o cofre.
+
 #include <iostream>
 #include <vector>
 #include <cstdint>

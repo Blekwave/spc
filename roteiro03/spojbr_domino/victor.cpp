@@ -1,3 +1,14 @@
+// A solução proposta cria um mapeamento entre cada peça de dominó (ou seja, o
+// par de valores impresso na sua face) e o seu identificador numérico.
+// Posteriormente, é lida a matriz de valores dispostos no tabuleiro e o pro-
+// grama tenta, por meio de força bruta com backtracking, dispor peças de domi-
+// nó de todas as formas possíveis.
+// Caso o programa consiga preencher o tabuleiro até o final, sem contradições
+// ou repetição de peças, é somado 1 ao contador de tabuleiros válidos. Caso
+// contrário, no momento em que não há configurações válidas de peças, o pro-
+// grama recua a estados anteriores, desfazendo as jogadas realizadas.
+
+
 #include <iostream>
 #include <map>
 #include <array>
