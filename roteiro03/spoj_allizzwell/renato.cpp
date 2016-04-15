@@ -1,3 +1,12 @@
+/**
+ * Resolvi esse problema usando uma matriz, inicialmente leio todas as letras
+ * para a matriz e aí utilizo depth first search, checando em todos os elementos
+ * ao redor de um nó, para ver se encontro o próximo. Também marco cada elemento
+ * que foi visitado para não repetir letras que já foram usadas.
+ * Chamo o algoritmo de DFS iniciando em cada elemento da matriz, para ver se em
+ * ao menos um dos elementos a string é encontrada.
+ */
+
 #include <iostream>
 #include <memory>
 

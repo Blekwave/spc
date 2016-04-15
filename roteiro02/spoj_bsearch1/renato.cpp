@@ -1,3 +1,9 @@
+/**
+ * Para resolver esse problema apenas usei busca binária (a função
+ * std::lower_bound é implementada com busca binária) para encontrar os
+ * resultados.
+ */
+
 #include <cstdio>
 #include <algorithm>
 #include <vector>

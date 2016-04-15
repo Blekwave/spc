@@ -1,3 +1,11 @@
+/*
+ * Para esse problema, foram usados dois vetores, um de largada e um de chegada.
+ * Após ler os n elementos de cada vetor, eu iterei pelos veotres de checada e
+ * largada, e quando encontrava um elemento no vetor de chegada igual ao de
+ * largada, eu contava as diferenças de posições entre eles e fazia swaps para
+ * mudar as posições de todos os outros carros, até igualar os dois vetores.
+ * */
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

@@ -1,3 +1,8 @@
+/**
+ * Esse problema foi resolvido através ler todas as cartas para um vetor,
+ * ordená-lo e, então, usar std::next_permutation() para gerar as permutações.
+ */
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
