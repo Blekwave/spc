@@ -16,7 +16,7 @@ do caminho que leva à menor distância, precisamos apenas do valor dessa distâ
 
 struct Graph {
     int vertices;
-    std::vector<std::vector<int> > matrix;
+    std::vector< std::vector<int> > matrix;
 
     Graph(const int& n) : vertices(n) {
         for(int i = 0; i < vertices; i++) {

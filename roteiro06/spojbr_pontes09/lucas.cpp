@@ -1,11 +1,21 @@
+/*
+
+Para resolver esse problema de caminho mínimo, utilizamos o algoritmo de Dijkstra.
+Nosso grafo possui n + 2 vértices, onde n é o número de pilares, pois temos um vértice
+para o inicio do caminho e outro para o acampamento. O algoritmo calcula apenas o
+caminho mínimo, e não as pontes pelas quais teremos que passar.
+
+*/
+
+
 #include <climits>
 #include <iostream>
-#include <algorithm>
 #include <vector>
+#include <queue>
 
-typedef struct Graph {
+struct Graph {
     int vertices;
-    std::vector<std::vector<int> > matrix;
+    std::vector< std::vector<int> > matrix;
 
     Graph(const int& n) : vertices(n) {
         for(int i = 0; i < vertices; i++) {
@@ -13,40 +23,40 @@ typedef struct Graph {
             matrix.push_back(row);
         }
     }
-} Graph;
+};
 
-typedef struct Vertex {
+struct Vertex {
     int idVertex, distance;
 
     Vertex(const int& id, const int& dist): idVertex(id), distance(dist) {};
-} Vertex;
+};
 
 struct Cmp {
-    inline bool operator() (const Vertex& a, const Vertex& b) {
+    bool operator() (const Vertex& a, const Vertex& b) {
         return a.distance > b.distance;
     }
 };
 
-inline void readGraph(Graph& g, int& edges) {
+void readGraph(Graph& g, int& edges) {
     int i, j, t;
     while(edges) {
         std::cin >> i >> j >> t;
-        g.matrix[i-1][j-1] = t;
+        g.matrix[i][j] = t;
+        g.matrix[j][i] = t;
         edges--;
     }
 }
 
-inline int dijkstra(const Graph& g, const int& start, const int& end) {
-    std::vector<Vertex> heap;
+int dijkstra(const Graph& g, const int& start, const int& end) {
+    std::priority_queue<Vertex, std::vector<Vertex>, Cmp> pq;
     std::vector<bool> visited(g.vertices, false);
     std::vector<int> minDists(g.vertices, INT_MAX);
 
-    heap.push_back(Vertex(start, 0));
+    pq.push(Vertex(start, 0));
     minDists[start] = 0;
-
-    while(!heap.empty()) {
-        Vertex curr = heap.back();
-        heap.pop_back();
+    while(!pq.empty()) {
+        Vertex curr = pq.top();
+        pq.pop();
         visited[curr.idVertex] = true;
 
         if(curr.idVertex == end) return minDists[curr.idVertex];
@@ -57,8 +67,7 @@ inline int dijkstra(const Graph& g, const int& start, const int& end) {
             if(minDists[curr.idVertex] + g.matrix[curr.idVertex][i] < minDists[i]) {
                 minDists[i] = minDists[curr.idVertex] + g.matrix[curr.idVertex][i];
 
-                heap.push_back(Vertex(i, minDists[i]));
-                std::sort(heap.begin(), heap.end(), Cmp());
+                pq.push(Vertex(i, minDists[i]));
             }
         }
     }
@@ -67,17 +76,14 @@ inline int dijkstra(const Graph& g, const int& start, const int& end) {
 }
 
 int main() {
-    std::ios_base::sync_with_stdio(false);
-    int n, m, start, end;
-    while(true) {
-        std::cin >> n >> m;
-        if(n == 0) break;
+    int n, m;
 
-        Graph g(n);
-        readGraph(g, m);
-        std::cin >> start >> end;
+    std::cin >> n >> m;
 
-        std::cout << dijkstra(g, start-1, end-1) << "\n";
-    }
+    Graph g(n + 2);
+    readGraph(g, m);
+
+    std::cout << dijkstra(g, 0, n + 1) << "\n";
+
     return 0;
 }
