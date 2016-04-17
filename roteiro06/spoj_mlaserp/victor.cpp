@@ -29,14 +29,8 @@ PastureMatrix readPasture(){
     return p;
 }
 
-struct Arc {
-    int to;
-    int value;
-    Arc (int to, int value) : to(to), value(value) {};
-};
-
 struct PastureGraph {
-    vector<vector<Arc>> v;
+    vector<vector<int>> v;
     vector<char> vertex_type;
     int vertices;
     int w;
@@ -45,8 +39,7 @@ struct PastureGraph {
     void addArc(int from, int i, int j, int d, int value){
         int to = (i * w + j) * 2 + d;
         if (vertex_type[to] != '*'){
-            Arc a(to, value);
-            v[from].push_back(a);
+            v[from][to] = value;
         }
     }
 
@@ -96,14 +89,16 @@ struct PastureGraph {
         w = m[0].size();
         vertices = w * h * 2;
 
+        for (int i = 0; i < vertices; i++){
+            vector<int> row(vertices, -1);
+            v.push_back(row);
+        }
+
         bool first_cow = true;
 
         // Initialize m x n x 2 vertices
         for (auto row : m){
             for (auto c : row){
-                vector<Arc> row_a, row_b;
-                v.push_back(row_a);
-                v.push_back(row_b);
                 vertex_type.push_back(c);
                 if (first_cow and c == 'C'){
                     vertex_type.push_back('*');
@@ -143,10 +138,12 @@ int distanceToAnotherCow(PastureGraph g, int starting_cow){
     int current = starting_cow;
 
     while (current == starting_cow or g.vertex_type[current] != 'C'){
-        for (Arc a : g.v[current]){
-            int new_dist = a.value + distance[current];
-            if (distance[a.to] > new_dist){
-                distance[a.to] = new_dist;
+        for (int to = 0; to < g.vertices; to++){
+            if (g.v[current][to] != -1){
+                int new_dist = g.v[current][to] + distance[current];
+                if (distance[to] > new_dist){
+                    distance[to] = new_dist;
+                }
             }
         }
         visited[current] = true;
