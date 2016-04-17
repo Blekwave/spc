@@ -1,3 +1,12 @@
+// O problema pode ser modelado em grafos da seguinte maneira: cada célula da
+// matriz correspondente ao pasto é um vértice. Existe um arco de um vértice u
+// a todo vértice v que pode ser alcançado movendo em linha reta a partir dele,
+// sem passar por obstáculos. Não existem arcos de/para obstáculos.
+// Com essa modelagem, computar o número de espelhos envolve descobrir o número
+// de "curvas" a ser realizadas. Isso corresponde a encontrar o caminho mínimo
+// de uma vaca à outra e subtrair 1 (um caminho com apenas uma aresta não tem
+// curvas).
+
 #include <iostream>
 #include <vector>
 #include <utility>
@@ -7,9 +16,6 @@ using std::vector;
 using std::cin;
 using std::cout;
 using std::queue;
-
-// d == 0 -> horizontal
-// d == 1 -> vertical
 
 typedef vector<vector<char>> PastureMatrix;
 
