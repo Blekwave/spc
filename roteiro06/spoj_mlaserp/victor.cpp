@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <utility>
+#include <queue>
 
 using std::vector;
 using std::cin;
 using std::cout;
-using std::pair;
+using std::queue;
 
 // d == 0 -> horizontal
 // d == 1 -> vertical
@@ -36,83 +37,59 @@ struct PastureGraph {
     int w;
     int h;
 
-    void addArc(int from, int i, int j, int d, int value){
-        int to = (i * w + j) * 2 + d;
-        if (vertex_type[to] != '*'){
-            v[from][to] = value;
-        }
-    }
-
     void addOutgoingArcs(int from){
-        int d = from % 2;
-        int i = from / 2 / w;
-        int j = from / 2 % w;
-        // add horizontal arcs
-        if (j - 1 >= 0){
-            addArc(from, i, j - 1, 0, d);
+        int i = from / w;
+        int j = from % w;
+        // add arcs leftward
+        for (int col = j - 1; col >= 0; col--){
+            int to = i * w + col;
+            if (vertex_type[to] == '*'){
+                break;
+            }
+            v[from].push_back(to);
         }
-        if (j + 1 < w){
-            addArc(from, i, j + 1, 0, d);
+        // add arcs downward
+        for (int row = i + 1; row < h; row++){
+            int to = row * w + j;
+            if (vertex_type[to] == '*'){
+                break;
+            }
+            v[from].push_back(to);
         }
-        // add vertical arcs
-        if (i - 1 >= 0){
-            addArc(from, i - 1, j, 1, 1 - d);
+        // add arcs upward
+        for (int row = i - 1; row >= 0; row--){
+            int to = row * w + j;
+            if (vertex_type[to] == '*'){
+                break;
+            }
+            v[from].push_back(to);
         }
-        if (i + 1 < h){
-            addArc(from, i + 1, j, 1, 1 - d);
+        // add arcs rightward
+        for (int col = j + 1; col < w; col++){
+            int to = i * w + col;
+            if (vertex_type[to] == '*'){
+                break;
+            }
+            v[from].push_back(to);
         }
-
-    }
-
-    void addNullArcs(int from){
-        int i = from / 2 / w;
-        int j = from / 2 % w;
-        // add horizontal arcs
-        if (j - 1 >= 0){
-            addArc(from, i, j - 1, 0, 0);
-        }
-        if (j + 1 < w){
-            addArc(from, i, j + 1, 0, 0);
-        }
-        // add vertical arcs
-        if (i - 1 >= 0){
-            addArc(from, i - 1, j, 1, 0);
-        }
-        if (i + 1 < h){
-            addArc(from, i + 1, j, 1, 0);
-        }
-
     }
 
     PastureGraph(PastureMatrix m) {
         h = m.size();
         w = m[0].size();
-        vertices = w * h * 2;
+        vertices = w * h;
 
-        for (int i = 0; i < vertices; i++){
-            vector<int> row(vertices, -1);
-            v.push_back(row);
-        }
-
-        bool first_cow = true;
-
-        // Initialize m x n x 2 vertices
+        // Initialize m x n vertices
         for (auto row : m){
             for (auto c : row){
+                vector<int> row;
+                v.push_back(row);
                 vertex_type.push_back(c);
-                if (first_cow and c == 'C'){
-                    vertex_type.push_back('*');
-                    first_cow = false;
-                } else {
-                    vertex_type.push_back(c);
-                }
             }
         }
 
         for (int i = 0; i < vertices; i++){
-            if (vertex_type[i] == 'C'){
-                addNullArcs(i);
-            } else if (vertex_type[i] != '*'){
+            if (vertex_type[i] != '*'){
                 addOutgoingArcs(i);
             }
         }
@@ -120,46 +97,46 @@ struct PastureGraph {
 
 };
 
-int findACow(PastureGraph g){
-    for (int i = 0; i < g.vertices; i++){
-        if (g.vertex_type[i] == 'C'){
-            return i;
-        }
+void findCows(PastureGraph g, int &starting_cow, int &end_cow){
+    int i = 0;
+    while (g.vertex_type[i] != 'C'){
+        i++;
     }
-    return -1;
+    starting_cow = i;
+    i++;
+    while (g.vertex_type[i] != 'C'){
+        i++;
+    }
+    end_cow = i;
 }
 
 
-int distanceToAnotherCow(PastureGraph g, int starting_cow){
+int distanceBetweenCows(PastureGraph g, int starting_cow, int end_cow){
     vector<bool> visited(g.vertices, false);
     vector<int> distance(g.vertices, g.vertices * 3); // Impossibly large
-    distance[starting_cow] = 0;
+    distance[starting_cow] = -1;
+    visited[starting_cow] = true;
 
-    int current = starting_cow;
+    queue<int> q;
+    q.push(starting_cow);
 
-    while (current == starting_cow or g.vertex_type[current] != 'C'){
-        for (int to = 0; to < g.vertices; to++){
-            if (g.v[current][to] != -1){
-                int new_dist = g.v[current][to] + distance[current];
-                if (distance[to] > new_dist){
-                    distance[to] = new_dist;
-                }
+    while (!q.empty()){
+        int current = q.front();
+        q.pop();
+
+        if (current == end_cow){
+            return distance[current];
+        }
+
+        for (int neighbor : g.v[current]){
+            if (not visited[neighbor]){
+                visited[neighbor] = true;
+                distance[neighbor] = distance[current] + 1;
+                q.push(neighbor);
             }
         }
-        visited[current] = true;
-
-        int next;
-        int next_distance = g.vertices * 3;
-        for (int i = 0; i < g.vertices; i++){
-            if (not visited[i] and distance[i] < next_distance){
-                next = i;
-                next_distance = distance[i];
-            }
-        }
-        current = next;
     }
-
-    return distance[current];
+    return -1;
 }
 
 
@@ -168,8 +145,9 @@ int main(){
     PastureMatrix p = readPasture();
     PastureGraph g(p);
 
-    int starting_cow = findACow(g);
-    int result = distanceToAnotherCow(g, starting_cow);
+    int start, end;
+    findCows(g, start, end);
+    int result = distanceBetweenCows(g, start, end);
 
     cout << result << "\n";
 
