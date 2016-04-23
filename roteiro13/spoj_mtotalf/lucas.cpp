@@ -1,5 +1,7 @@
+#include <climits>
 #include <iostream>
 #include <queue>
+#include <map>
 
 const int NUM_LETTERS = 54;
 
@@ -31,22 +33,51 @@ void readGraph(Graph& g, int nEdges, std::map<char, int> charToIndex) {
     }
 }
 
-int find_augpath(Graph& g, Graph& residual, std::map<char, int> charToIndex) {
-    std::vector<bool> visited(NUM_LETTERS, -1);
+int findAugPath(Graph& g, Graph& residual, std::map<char, int> charToIndex) {
+    std::vector<bool> visited(NUM_LETTERS, false);
     std::queue<int> q;
-    q.push('A');
+    q.push(charToIndex['A']);
     visited[charToIndex['A']] = true;
     std::vector<int> from(NUM_LETTERS, -1);
+    bool sinkFound = false;
+    int where, next, prev;
 
-    while(!q.empty()) {
-        int curr = q.top();
+    while(!q.empty() && !sinkFound) {
+        where = q.front();
         q.pop();
 
-        for(int weight : g.matrix[curr]) {
+        for(next = 0; next < g.vertices; next++){
+            int weight = g.matrix[where][next];
+            if(weight == -1 || visited[next] || residual.matrix[where][next] <= 0) continue;
 
+            q.push(next);
+            visited[next] = true;
+            from[next] = where;
+            if(next == charToIndex['Z'])
+                sinkFound = true;
         }
     }
 
+    where = charToIndex['Z'];
+    int pathCap = INT_MAX;
+
+    while(from[where] > -1) {
+        prev = from[where];
+        pathCap = std::min(pathCap, residual.matrix[prev][where]);
+        where = prev;
+    }
+
+    where = charToIndex['Z'];
+
+    while(from[where] > -1) {
+        prev = from[where];
+        residual.matrix[prev][where] -= pathCap;
+        residual.matrix[where][prev] += pathCap;
+        where = prev;
+    }
+
+    if(pathCap == INT_MAX) return 0;
+    return pathCap;
 }
 
 int maximumFlow(Graph g, std::map<char, int> charToIndex) {
@@ -56,13 +87,13 @@ int maximumFlow(Graph g, std::map<char, int> charToIndex) {
             residual.matrix[i][j] = g.matrix[i][j];
         }
     }
-    int result = 0;
-    while(1) {
-        int extraCap = find_augpath(g, residual, charToIndex);
+    int result = 0, extraCap = -1;
+    while(extraCap != 0) {
+        extraCap = findAugPath(g, residual, charToIndex);
         result += extraCap;
-        if(extraCap == 0)
-            return result;
     }
+
+    return result;
 }
 
 int main() {
