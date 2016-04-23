@@ -1,6 +1,8 @@
 #include <iostream>
 #include <queue>
 
+const int NUM_LETTERS = 54;
+
 struct Graph {
     int vertices;
     std::vector< std::vector<int> > matrix;
@@ -29,16 +31,34 @@ void readGraph(Graph& g, int nEdges, std::map<char, int> charToIndex) {
     }
 }
 
-int find_augpath(Graph& g, Graph& residual) {
-    std::queue q;
-    
+int find_augpath(Graph& g, Graph& residual, std::map<char, int> charToIndex) {
+    std::vector<bool> visited(NUM_LETTERS, -1);
+    std::queue<int> q;
+    q.push('A');
+    visited[charToIndex['A']] = true;
+    std::vector<int> from(NUM_LETTERS, -1);
+
+    while(!q.empty()) {
+        int curr = q.top();
+        q.pop();
+
+        for(int weight : g.matrix[curr]) {
+
+        }
+    }
+
 }
 
-int maximumFlow(Graph g) {
+int maximumFlow(Graph g, std::map<char, int> charToIndex) {
     Graph residual(g.vertices);
+    for(int i = 0; i < g.vertices; i++) {
+        for(int j = 0; j < g.vertices; j++) {
+            residual.matrix[i][j] = g.matrix[i][j];
+        }
+    }
     int result = 0;
     while(1) {
-        int extraCap = find_augpath(g, residual);
+        int extraCap = find_augpath(g, residual, charToIndex);
         result += extraCap;
         if(extraCap == 0)
             return result;
@@ -47,7 +67,7 @@ int maximumFlow(Graph g) {
 
 int main() {
     // we have 27 uppercase and 27 lowercase letters
-    Graph g(54);
+    Graph g(NUM_LETTERS);
 
     // we map the possible characters to indexes on the graph
     std::map<char, int> charToIndex;
@@ -64,7 +84,7 @@ int main() {
 
     readGraph(g, N, charToIndex);
 
-    int maxFlow = maximumFlow(g);
+    int maxFlow = maximumFlow(g, charToIndex);
 
     std::cout << maxFlow << "\n";
 
