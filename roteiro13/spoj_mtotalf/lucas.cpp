@@ -1,3 +1,14 @@
+/*
+
+    Recebemos os canos e montamos o grafo. Caso tenhamos mais de um cano entre
+    dois estábulos, somamos as capacidades dos canos. Mantemos um mapeamento das
+    letras dos canos para os índices dos vértices no grafo. Após esse procedimento,
+    utilizamos o algoritmo de Ford-Fulkerson para obter o fluxo máximo de água entre
+    o celeiro A e o celeiro Z, e exibimos o valor desse fluxo.
+
+ */
+
+
 #include <climits>
 #include <iostream>
 #include <queue>
