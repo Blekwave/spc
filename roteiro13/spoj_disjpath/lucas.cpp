@@ -164,7 +164,6 @@ int main() {
         if(K == 0) break;
 
         Graph g(N);
-        Graph residual(N);
         readGraph(g);
 
         maxStudents = maximumFlow(g);
