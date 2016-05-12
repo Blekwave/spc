@@ -1,3 +1,14 @@
+/*
+
+Para a resolução desse problema, utilizamos programação dinâmica para encontrar
+a menor subsequência comum às duas sequências genéticas. Ao fim desse processo,
+podemos construir uma solução pegando as letras específicas de cada palavra na
+ordem, alternando com um elemento da LCS sempre que ele for encontrado nas duas
+palavras. Dessa forma as letras que podem ser usadas nas duas palavras ao mesmo
+tempo não são repetidas, e obtemos a menor "supersequência" das duas strings.
+
+*/
+
 #include <iostream>
 #include <vector>
 
