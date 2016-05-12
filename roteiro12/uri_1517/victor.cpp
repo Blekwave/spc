@@ -1,3 +1,17 @@
+// A solução consiste no uso de uma matriz tridimensional cujas dimensões são
+// o tempo e as linhas e colunas da matriz 2D correspondente à área abaixo da
+// árvore. Os valores dessa matriz são todos inicializados como -1, exceto pela
+// posição de início de Rafael, que começa com 0.
+// A cada instante de tempo, a matriz 2D associada a esse momento é calculada.
+// Ela é inicializada como uma cópia da matriz do instante anterior. Então,
+// itera-se pela matriz e determina-se, para cada célula, o maior valor entre
+// as células adjacentes e ela própria. Se esse valor é maior que -1, isso é,
+// se é possível que Rafael alcance essa posição da matriz no instante de tempo
+// determinado, soma-se o número de maçãs que caem nessa posição nesse instante
+// de tempo.
+// Ao final, o valor máximo é o maior valor dentre as células da matriz do
+// último instante de tempo.
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

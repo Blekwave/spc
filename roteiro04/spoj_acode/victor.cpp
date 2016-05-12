@@ -1,3 +1,15 @@
+// O problema consiste em determinar quantas palavras diferentes são
+// correspondentes a uma série de dígitos que correspondem a caracteres do
+// alfabeto numericamente (de 1 a 26).
+// O cálculo disso consiste na execução de um algoritmo de programação
+// dinamica que checa, para cada dígito lido, se ele é um dígito válido
+// individualmente e se ele e o dígito anterior formam um caractere válido.
+// O dígito é válido individualmente se ele é diferente de 0, e ele é válido
+// conjuntamente com o anterior se ambos formam algum valor de 01 a 26.
+// Um vetor é utilizado para armazenar o número máximo de combinações até uma
+// determinada posição. Esse valor equivale para v[i] à soma de v[i - 1] se o
+// dígito atual é válido individualmente e v[i - 2] se o atual e o prévio
+// formam um caractere válido conjuntamente.
 #include <iostream>
 #include <string>
 #include <vector>

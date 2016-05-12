@@ -1,3 +1,10 @@
+// O problema consiste em determinar a maior subsequência contígua em um vetor.
+// Para isso, é armazenado o valor da subsequência atual, inicializado como 0,
+// assim como o valor da subsequência máxima. Itera-se, então, ao longo do
+// vetor, e, para cada valor lido, o valor é somado à soma atual. Se essa soma
+// é maior que a máxima registrada, a máxima é redefinida como a soma atual. Se
+// a soma resulta em um número negativo, seu valor é corrigido para zero.
+
 #include <stdio.h>
 
 int main(){

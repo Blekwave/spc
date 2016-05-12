@@ -1,3 +1,17 @@
+// O problema proposto é uma variação do unbounded knapsack, em que é possível
+// adicionar várias cópias de um mesmo item à mochila. A diferença fundamental
+// é o cálculo do valor da mochila, que é realizado de acordo com a fórmula
+// de probabilidade conjunta de falha no sistema, apresentada no enunciado do
+// problema.
+// A solução proposta verifica, para cada item que pode ser adicionado, o valor
+// da mochila que é composta por esse item e os itens presentes na melhor
+// mochila cujo custo equivale ao custo atual subtraído do custo desse item.
+// Esse processo é realizado para todos os custos de mochila até o limite
+// superior, que é o custo máximo do sistema. É escolhida a mochila cujo valor
+// de robustez é máximo.
+// Ao fim do algoritmo, a melhor configuração corresponde ao último item do
+// vetor.
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
