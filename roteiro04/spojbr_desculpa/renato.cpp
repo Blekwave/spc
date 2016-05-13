@@ -1,3 +1,13 @@
+/*
+ * O algoritmo utiliza um vetor para armazenar as frases e uma tabela para
+ * calcular a PD. Inicialmente a tabela é inicializada toda com zeros, e é
+ * preenchida do início ao fim seguindo a equação de recorrência abaixo:
+ *      t[i][j] = t[i-1][j] if phrases[i].numCharacters is bigger than j
+ * else t[i][j] = max(t[i-1][j], phrases[i].numSorrys + t[i-1][j - phrases[i].numCharacters]).
+ *
+ * No final, o resultado da PD está em t[numPhrases][cardSize].
+ */
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
