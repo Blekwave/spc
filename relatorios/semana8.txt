@@ -1,0 +1,88 @@
+caixas
+Autor: Renato
+Solução:
+Para resolver o problema, eu primeiramente descarto todas as caixas que
+estão abaixo do nível da caixa 1. Após isso, olho para as caixas à esquerda
+da caixa 1, e descarto todas as pilhas que estão à esquerda da primeira pilha
+vazia. Faço o mesmo para as caixas à direita da caixa 1: descarto todas as
+pilhas que estão à direita da primeira pilha vazia.
+Com isso, o resultado final pode ser calculado por apenas:
+min(caixasEsquerda, caixasDireita) + caixasPilhaCaixa1 - 1
+
+
+maçãs (uri 1517)
+Autor: Victor
+Solução:
+A solução consiste no uso de uma matriz tridimensional cujas dimensões são
+o tempo e as linhas e colunas da matriz 2D correspondente à área abaixo da
+árvore. Os valores dessa matriz são todos inicializados como -1, exceto pela
+posição de início de Rafael, que começa com 0.
+A cada instante de tempo, a matriz 2D associada a esse momento é calculada.
+Ela é inicializada como uma cópia da matriz do instante anterior. Então,
+itera-se pela matriz e determina-se, para cada célula, o maior valor entre
+as células adjacentes e ela própria. Se esse valor é maior que -1, isso é,
+se é possível que Rafael alcance essa posição da matriz no instante de tempo
+determinado, soma-se o número de maçãs que caem nessa posição nesse instante
+de tempo.
+Ao final, o valor máximo é o maior valor dentre as células da matriz do
+último instante de tempo.
+
+
+wcw
+Autor: Renato
+Solução:
+Esse problema foi resolvido fazendo todas as inversões para cada um dos
+elementos da array de entrada, e contando a quantidade de inversões. Dado
+o vetor v, indexado de 1 a N, para cada um dos elementos eram feitas a troca
+de v[i] com v[v[i]] até o valor do elemento ser igual ao seu index. No final,
+o vetor estará ordenado e o número de inversões contado.
+
+
+robusmg
+Autor: Victor
+Solução:
+O problema proposto é uma variação do unbounded knapsack, em que é possível
+adicionar várias cópias de um mesmo item à mochila. A diferença fundamental
+é o cálculo do valor da mochila, que é realizado de acordo com a fórmula
+de probabilidade conjunta de falha no sistema, apresentada no enunciado do
+problema.
+A solução proposta verifica, para cada item que pode ser adicionado, o valor
+da mochila que é composta por esse item e os itens presentes na melhor
+mochila cujo custo equivale ao custo atual subtraído do custo desse item.
+Esse processo é realizado para todos os custos de mochila até o limite
+superior, que é o custo máximo do sistema. É escolhida a mochila cujo valor
+de robustez é máximo.
+Ao fim do algoritmo, a melhor configuração corresponde ao último item do
+vetor.
+
+
+parque
+Autor: Lucas
+Solução:
+Para a resolução desse problema, utilizamos programação dinâmica para encontrar
+a menor subsequência comum às duas sequências genéticas. Ao fim desse processo,
+podemos construir uma solução pegando as letras específicas de cada palavra na
+ordem, alternando com um elemento da LCS sempre que ele for encontrado nas duas
+palavras. Dessa forma as letras que podem ser usadas nas duas palavras ao mesmo
+tempo não são repetidas, e obtemos a menor "supersequência" das duas strings.
+
+
+uva 12484
+Autor: Jonatas
+Solução:
+Adotando-se programação dinâmica, construímos uma matriz 5xN, já que há cinco moedas disponíveis que representam as linhas e N colunas que são números de 1 à N.
+Inicialmente, todas as colunas da primeira linha, que representa a moeda de valor 1, é igual a 1, já que há apenas uma maneira de representar um valor apenas
+com moedas de 1. Após isso,para cada linha, se o índice j da coluna é menor que o índice i da linha, simplesmente copiamos o valor da posição [i-1][j].
+Caso contrário, o valor daquela posição é igual ao da posição [i-1][j] somado com o a posição [i][j-X], onde X é o valor da moeda corrente que está sendo
+analisada. No fim, verificamos a posição [5][numero] que contém o número de maneiras possíveis de dar o troco do valor numero com as moedas disponíveis.
+7
+
+
+uva 357
+Autor: Jonatas
+Solução:
+Armazenamos a sequencia das cartas em um vetor e criamos uma matriz do tamanho desse vetor com duas linhas. Na primeira linha, simula-se as jogadas feitas por
+Alberto, enquanto na segunda, simula-se as jogadas de Wanderley. Na primeira linha, sempre tentamos maximizar o número de pontos, enquanto na segunda, sempre tentamos
+minimizar os pontos. Em cada posição vão sendo armazenados os pontos que consegue-se com as jogadas descritas. No fim do algoritmo, a primeira posição da primeira
+linha possui o máximo de pontos que o primeiro jogador consegue. Esse valor é então impresso na console.
+

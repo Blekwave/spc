@@ -1,0 +1,83 @@
+Contagem
+Autor: Jonatas
+Solução:
+Para resolver esse problema, simplesmente é determinado se há uma transição entre a parte superior e a parte inferior do autômato. Se há essa ocorrência e temos
+uma letra 'b' após ela, temos que o valor do caminho é igual a 2^r, onde r é o número de caracteres após esse determinado 'b'. Sendo assim, percorre-se todo o
+vetor de caracteres da entrada, determinando as transações e somando o valor desse caminho em uma variavél que é exibida ao fim da execução.
+
+Redotica
+Autor: Jonatas
+Solução:
+Para resolver esse problema, tomamos a entrada e construímos uma matriz de adjacência. Após isso, basta-se aplicar o algoritmo de Prim para determinar a árvore
+geradora mínima. Uma vez essa árvore obtida, apenas imprime-se a solução na console.
+
+Engarraf
+Autor: Lucas
+Solução:
+Esse problema é um caso simples de caminho mínimo. Para resolvê-lo, utilizamos
+o algoritmo de Dijkstra, utilizando uma fila de prioridades para armazenar os
+vertices a visitar para realizar o relaxamento, e repetindo o processo até que
+tenhamos a menor distância até a posição onde queremos chegar. Não precisamos
+do caminho que leva à menor distância, precisamos apenas do valor dessa distância.
+
+Desvio
+Autor: Renato
+Solução:
+Esse problema foi resolvido utilizando um simples algoritmo de caminho
+mínimo entre o vértice inicial e o final (no caso, dijkstra).
+O algoritmo de Dijkstra foi implementado usando uma Heap.
+Para atender à condição de que caso o caminho chegar a um dos vértices
+do caminho padrão esse caminho padrão deve ser seguido até o fim, ao
+adicionar uma aresta ao grafo caso um dos vértices fosse do caminho padrão,
+a aresta apenas seria adicionada caso o outro vértice fosse o próximo vértice
+do caminho padrão, de modo que o grafo fica apenas com o caminho padrão nos
+vértices do caminho padrão.
+
+Pontes09
+Autor: Lucas
+Solução:
+Para resolver esse problema de caminho mínimo, utilizamos o algoritmo de Dijkstra.
+Nosso grafo possui n + 2 vértices, onde n é o número de pilares, pois temos um vértice
+para o inicio do caminho e outro para o acampamento. O algoritmo calcula apenas o
+caminho mínimo, e não as pontes pelas quais teremos que passar.
+
+
+Interlmg
+Autor: Renato
+Solução:
+Esse problema foi resolvido utilizando o algoritmo de Prim para montar uma
+árvore geradora mínima.
+Uma min-heap foi utilizada como a estrutura de dados do algoritmo de Prim.
+Para calcular o mínimo tamanho da rede necessário, durante a execução do
+algoritmo de Prim, assim que se remove um elemento da Heap (que é um
+vértice com o peso calculado pelo algoritmo), se testa esse elemento ao
+maior peso visto anteriormente. Caso o peso for maior, esse peso é salvo.
+Desse modo, ao final da execução do algoritmo, o valor salvo é o maior peso
+da árvore geradora mínima, que é a menor distância para que todas as cidades
+estejam conectadas.
+
+
+Micemaze
+Autor: Lucas
+Solução:
+Para resolver esse problema, precisamos do caminho mínimo entre todos os vértices,
+onde cada vértice representa uma célula. Poderíamos utilizar Dijkstra para todos os
+caminhos possíveis, mas para esse problema utilizamos o algoritmo de Floyd-Warshall,
+que tem complexidade O(|V|³). Após a utilização desse algoritmo, passamos por todas
+as posições na nova matriz de adjacências que representam arestas que terminam no
+vértice onde se encontra a saída do labirinto.
+
+
+
+Mlaserp
+Autor: Victor
+Solução:
+O problema pode ser modelado em grafos da seguinte maneira: cada célula da
+matriz correspondente ao pasto é um vértice. Existe um arco de um vértice u
+a todo vértice v que pode ser alcançado movendo em linha reta a partir dele,
+sem passar por obstáculos. Não existem arcos de/para obstáculos.
+Com essa modelagem, computar o número de espelhos envolve descobrir o número
+de "curvas" a ser realizadas. Isso corresponde a encontrar o caminho mínimo
+de uma vaca à outra e subtrair 1 (um caminho com apenas uma aresta não tem
+curvas).
+

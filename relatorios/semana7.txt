@@ -1,0 +1,81 @@
+acode
+Autor: Victor
+Solução:
+O problema consiste em determinar quantas palavras diferentes são
+correspondentes a uma série de dígitos que correspondem a caracteres do
+alfabeto numericamente (de 1 a 26).
+O cálculo disso consiste na execução de um algoritmo de programação
+dinamica que checa, para cada dígito lido, se ele é um dígito válido
+individualmente e se ele e o dígito anterior formam um caractere válido.
+O dígito é válido individualmente se ele é diferente de 0, e ele é válido
+conjuntamente com o anterior se ambos formam algum valor de 01 a 26.
+Um vetor é utilizado para armazenar o número máximo de combinações até uma
+determinada posição. Esse valor equivale para v[i] à soma de v[i - 1] se o
+dígito atual é válido individualmente e v[i - 2] se o atual e o prévio
+formam um caractere válido conjuntamente.
+
+
+bapostas
+Autor: Victor
+Solução:
+O problema consiste em determinar a maior subsequência contígua em um vetor.
+Para isso, é armazenado o valor da subsequência atual, inicializado como 0,
+assim como o valor da subsequência máxima. Itera-se, então, ao longo do
+vetor, e, para cada valor lido, o valor é somado à soma atual. Se essa soma
+é maior que a máxima registrada, a máxima é redefinida como a soma atual. Se
+a soma resulta em um número negativo, seu valor é corrigido para zero.
+
+
+bit
+Autor: Jonatas
+Solução:
+Para resolver esse problema, simplesmente pegamos o valor V e tomamos a maior nota que seja menor ou igual a este valor. Vamos decrementando essa nota
+até que não que o valor restante seja menor que a nota em questão. Após isso, começamos o mesmo processo com o próximo valor de nota que temos até chegarmos a 0.
+
+
+cormenmg
+Autor: Victor
+Solução:
+O problema consiste em encontrar as subsequências contíguas não-sobrepostas
+que somam 42. Para isso, a solução proposta cria um vetor de inteiros e
+define o início da seção desse vetor com valores que podem dar início a uma
+subsequência com valor 42 como a posição inicial. Sempre que um valor é
+lido, é somado esse valor a todos os itens do vetor a partir do início da
+seção e o valor em si é concatenado ao fim ao vetor. Se algum desses valores
+resultou em um valor igual a 42, é somado 1 ao contador de subsequências, e
+o início da seção é redefinido como a posição após o valor lido. Se houve um
+valor na seção maior que 42, o início da seção é redefinido para a posição
+após esse valor.
+
+
+desculpa
+Autor: Renato
+Solução:
+
+
+tesouro
+Autor: Jonatas
+Solução:
+Resolvendo-se um sistema linear de duas equações, temos que a melhor solução é dada pelo módulo da subtração do valor encontrado por João e o valor encontrado
+José mais a soma de todos os tesouros da arca dividido por dois. Após isso, criamos uma matriz NxN, onde N é o número de objetos encontrados na arca,
+e aplicamos o subset sum com programação dinâmica no mesmo para obter a solução. Caso o valor encontrado na posição [N][N] for igual é melhor solução
+calculada anteriormente, imprime-se 'S' na resposta e 'N', caso contrário.
+
+
+ioipalin
+Autor: Renato
+Solução:
+Para resolver esse problema, eu calculo a Longest Common Subsequence (LCS)
+da string de entrada com ela mesma invertida. Com isso, eu tenho o maior
+número de caracteres que deram match em sequência. Portanto, o número de
+caracteres que eu teria que mudar para tornar a string um palíndromo é
+n - LCS, em que n é o tamanho da string.
+
+
+knapsack
+Autor: Renato
+Solução:
+Para esse problema, uso uma array bidimensional indexada pelo número de itens
+e pelo valor desses itens, e preencho a array usando programação dinâmica.
+No final, a resposta é o último elemento da matriz.
+

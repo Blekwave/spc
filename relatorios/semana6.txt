@@ -1,0 +1,42 @@
+UVa 820
+Autor: Jonatas
+Solução:
+Para resolver esse problema, criamos um grafo a partir da entrada e obtemos o fluxo máximo do mesmo. Através da implementação do algoritmo de Ford-Fulkerson
+junto com a busca em largura para descobrir se um possível caminho vai da fonte até o nó final do grafo, é possível montar o grafo residual e obter o fluxo
+máximo do grafo da entrada do problema. Após rodar esse algoritmo, imprime-se a resposta na console.
+
+UVa 10480
+Autor: Jonatas
+Solução:
+Para resolver esse problema, criamos um grafo a partir da entrada e, através do algoritmo de Ford-Fulkerson, junto com uma busca em largura, montamos o grafo
+residual. Uma vez que o algoritmo é aplicado, criamos um grafo final, que é constituido pelos vértices remanescentes que ainda podem passar fluxo. Após isso,
+nesse grafo final, é determinado o conjunto de vértices que são alcançados pela fonte e armazena em um vetor. Depois, percorre-se esse vetor, determinando as
+arestas que conectam um vértice alcançado pela fonte com um vértice não alcançado pela fonte e determina as suas coordenadas.
+
+
+Disjpath
+Autor: Lucas
+Solução:
+Fazemos a modelagem desse problema como uma rede de fluxo onde cada vértice
+é uma interseção e cada aresta é um corredor. A capacidade de todas as arestas
+é 1, permitindo assim que apenas um aluno da turma passe em cada corredor. Para
+evitar que os alunos se encontrem em vértices, duplicamos os vértices, criando
+para cada vértice X um X', sendo que as arestas que saem de X passam a sair de X'
+e a única aresta que sai de X vai para X' e tem capacidade 1. Dessa forma, para
+qualquer vértice X teremos as arestas entrando em X, saindo em X' e uma aresta
+ligando-os. Após criarmos o grafo dessa maneira, utilizamos op algoritmo de Ford-
+Fulkerson para calcular o fluxo máximo e gerar o grafo residual final. A partir do
+grafo residual obtemos o grafo com os fluxos ótimos. Caso o fluxo máximo seja
+menor que o número de alunos, é impossível que eles cheguem à sala sem se encontrar.
+Do contrário, listamos os caminhos disjuntos possíveis.
+
+
+Mtotalf
+Autor: Lucas
+Solução:
+Recebemos os canos e montamos o grafo. Caso tenhamos mais de um cano entre
+dois estábulos, somamos as capacidades dos canos. Mantemos um mapeamento das
+letras dos canos para os índices dos vértices no grafo. Após esse procedimento,
+utilizamos o algoritmo de Ford-Fulkerson para obter o fluxo máximo de água entre
+o celeiro A e o celeiro Z, e exibimos o valor desse fluxo.
+
