@@ -1,3 +1,9 @@
+/**
+ * Esse problema utilizou-se do fato que se a soma alternada dos dígitos de um
+ * número, da direita pra esquerda, for divisível por 11, então o número
+ * original é divisível por 11.
+ */
+
 #include <iostream>
 #include <string>
 #include <cstdint>
