@@ -1,3 +1,16 @@
+/*
+
+Para calcular a distância de arco entre os satélites basta multiplicar o raio da
+órbita (s + raio da terra) e o ângulo entre eles em radianos. Para o cálculo da
+distância de corda, utilizamos um pouco de trigonometria: se dividirmos o triângulo
+formado pelos dois satélites e o centro da Terra em dois utilizando sua bissetriz
+em relação ao ângulo dado, teremos dois triângulos retângulos. Calculamos o
+seno da metade do ângulo dado e multiplicamos pelo raio da órbita, e isso nos dará
+metade de distância de corda entre os satélites. Basta agora multiplicar o
+resultado por 2.
+
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <string>
