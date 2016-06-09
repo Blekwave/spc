@@ -1,3 +1,9 @@
+// A solução desse problema toma as dimensões A e B do retângulo e a função que determina o volume da caixa que é 
+// (A-2x)*(B-2x)*x = 4x^3 - 2x^2*(A+B) + x*(A*B). Tendo essa função, para obtermos o volume máximo, simplesmente 
+// tomamos a função de volume e derivamos uma vez, obtendo 12*x^2 - 4x*(A+B) + AB, e igualamos a 0. 
+// Dessa forma, temos dois valores e, aplicando à fórmula do volume, o que apresenta o maior resultado é 
+// impresso na console.
+
 #include <algorithm>
 #include <iostream>
 #include <cmath>

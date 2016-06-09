@@ -1,3 +1,8 @@
+// A solução desse problema toma as coordenadas do ponto de origem P(xp,yp) e D(xd,yd) e busca o número de k de passos
+// que chega ao destino somando valores inteiros às coordenadas do ponto de origem, sendo esses inteiros os menores 
+// possíveis. Para isso, temos que essa quantidade de passos deve dividir tanto o módulo de (xd-xp) quanto (yd-xp). 
+// Ou seja, o valor de k é exatamente o MDC desses dois módulos. O algoritmo realiza esse cálculo e imprime na console.
+
 #include <algorithm>
 #include <iostream>
 

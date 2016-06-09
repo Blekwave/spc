@@ -1,3 +1,9 @@
+// A solução desse problema percorre os caracteres da string da entrada e insere e um map e, no caso do
+// caractere já estar no map, o indice dele no map é incrementado. Após isso, o algoritmo percorre cada
+// posição do map e incrementa o contador do número de pares ordenados existentes com o valor da posição
+// do map ao quadrado. Depois de percorrer o map, o programa imprime o valor encontrado na console.
+
+
 #include <iostream>
 #include <string>
 #include <map>

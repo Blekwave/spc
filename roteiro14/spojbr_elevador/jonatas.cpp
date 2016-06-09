@@ -1,3 +1,8 @@
+// A solução desse problema verifica primeiramente se a menor dimensão da caixa comporta a circunferência de maior diâmetro. Em caso negativo,
+// imprime-se 'N'. No caso positivo, calculamos a maior distância possível entre os centros das circunferências, quando as elas são colocadas
+// em extremidades diagonais, que é igual à √((L-R1-R2)^2 + (C-R1-R2)^2). Se esse valor for maior ou igual à soma dos dois raios R1 e R2, os
+// cículos cabem na caixa e é impresso 'S'. Em caso contrário, imprime-se 'N'.
+
 #include <algorithm>
 #include <iostream>
 #include <cmath>

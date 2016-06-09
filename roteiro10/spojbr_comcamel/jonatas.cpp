@@ -1,3 +1,9 @@
+// A solução desse problema toma uma expressão aritmética com operações de multiplicação e adição e encontra o maior e o menor
+// resultado possível de ser obtido dessa expressão, fazendo as operações na ordem desejada. Para obter o maior resultado basta
+// que o algoritmo dê prioridade à operação de adição e, após que ela seja realizada, fazer as operações de multiplicação. Para
+// encontrar o menor resultado, o algortimo realiza as operações de multiplicação primeiro e, após realizá-las, faz as adições.
+// Uma vez realizados esses cálculos, o programa exibe o resultado na console.
+
 #include <algorithm>
 #include <iostream>
 #include <vector>

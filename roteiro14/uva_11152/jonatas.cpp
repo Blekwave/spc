@@ -1,3 +1,11 @@
+// A solução desse problema inicia-se calculando o semi-perímetro do triângulo, que é igual a s = (a + b + c)/2. Utiliza-se a 
+// fórmula de Heroen para calcular a área do triângulo a partir do valor dos lados do mesmo (A = √s*(s-a)*(s-b)*(s-c)). 
+// Temos que o raio do círculo circunscrito é igual a R = (a*b*c)/(4*A) e que o do círculo inscrito é r = A/s. Após isso, 
+// calcula-se as áreas de cada elemento (círculo externo, triângulo e círculo interno) e imprime-se:
+// * A área do círculo externo subtraída da área do triângulo;
+// * A área do triângulo subtraída da área do círculo interno; e
+// * A área do círculo interno.
+
 #include <algorithm>
 #include <iostream>
 #include <cmath>

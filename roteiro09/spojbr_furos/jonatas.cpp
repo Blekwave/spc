@@ -1,3 +1,8 @@
+// A solução desse problema toma cada ponto da placa e calcula a distância para os demais pontos, armazendo a maior distância.
+// Com essas maiores distâncias, seleciona-se a menor delas, que é o raio da peça (a distância entre os centros dos dois furos). 
+// Como cada furo tem 5 milímetros de diâmetro, adiciona-se 2,5 milímetros ao raio e calcula-se o valor final sendo igual a 
+// [2*(raio + 2,5)] que é a resposta final impressa na console.
+
 #include <algorithm>
 #include <iostream>
 #include <vector>

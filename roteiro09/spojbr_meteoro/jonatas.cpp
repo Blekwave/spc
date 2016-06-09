@@ -1,3 +1,9 @@
+// A solução desse problema simplesmente verifica se a coordenada dos pontos dados estão dentro dos limites dados. Se a coordenada
+// x do ponto for maior ou igual à coordenada x do canto superior e menor ou igual à coordenada x do canto inferior, além da
+// coordendada y do ponto ser maior ou igual à coordenada y do canto inferior e menor ou igual à coordenada y do canto superior,
+// tem-se um ponto válido. Incrementa-se um contador de meteoritos para cada ponto válido e imprime-se esse contador na console ao
+// terminar de analisar todos os pontos dados.
+
 #include <algorithm>
 #include <iostream>
 

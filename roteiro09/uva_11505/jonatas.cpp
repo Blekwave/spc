@@ -1,3 +1,9 @@
+// A solução desse problema toma a posição inicial da tartaruga como (0,0) e, a cada comando, atualiza a coordenada ou ângulo da mesma.
+// O ângulo é obtido através da soma, quando o comando é 'lt', ou da subtração, quando o comando é 'rt', módulo 360 com o valor dado. Para
+// atualizar as coordenadas, soma-se ou subtrai-se as coordendas correntes, sendo que o deslocamento em x é d*cos(âng.) e em y é d*sin(âng.), 
+// onde âng é o valor do ângulo atual. Quando o comando é 'fd' soma-se as coordendas e quando é 'bk' realiza-se a subtração. Ao término dos 
+// comandos, temos uma nova posição e, calculando-se a distância desta com a posição (0,0) inicial, temos a resposta do problema.
+
 #include <algorithm>
 #include <iostream>
 #include <string>

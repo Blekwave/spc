@@ -1,3 +1,9 @@
+// A solução desse primeiramente calcula os números de Fibonnaci até o 44º, que é o maior número garantido pela entrada. 
+// Após isso, o programa lê a sequência de números e a string da entrada. Utilizando o método dado pelo problema, cada 
+// caractere da entrada é lido e seu índice na sequência de Fibonnaci é encontrado. Ao encontrar esse valor, temos a 
+// a posição do caractere na string de saída, ele é então colocado na posição e isso é realizado para todos os caracteres
+// até que temos a string de saída pronta e ela é impressa na console. 
+
 #include <algorithm>
 #include <iostream>
 #include <vector>
