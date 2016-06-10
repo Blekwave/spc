@@ -1,3 +1,16 @@
+// O problema proposto é simples: determinar todos os primos entre dois números
+// inteiros. No entanto, os altos limites para as entradas do problema fazem
+// com que um simples crivo de Eratóstenes se torne inviável, tanto em memória
+// quanto em tempo.
+// A solução é implementar o crivo de Eratóstenes segmentado, que verifica os
+// números primos em blocos. Por exemplo, ele computaria os primos entre 0 e
+// 1000 com blocos de 100 números verificando primeiramente os primos entre
+// 0 e 100, depois 101 a 200 e assim em diante. Esse algoritmo, no entanto,
+// necessita de uma lista dos primos até sqrt(n), sendo n o limite para o qual
+// se quer os primos. Por isso, portanto, implementei também o crivo conven-
+// cional, para alimentar a primeira chamada ao crivo segmentado. Retrospecti-
+// vamente, bastaria uma lista dos primos até um valor pequeno.
+
 #include <cstdio>
 #include <vector>
 #include <cstdlib>

@@ -1,3 +1,7 @@
+// O problema consiste em determinar em qual quadrante uma coordenada está, ou
+// se ela se situa em algum eixo do plano cartesiano. A solução é trivial, com
+// algumas comparações.
+
 #include <iostream>
 #include <utility>
 

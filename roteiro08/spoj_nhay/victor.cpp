@@ -1,3 +1,13 @@
+// O problema consiste em encontrar padrões em uma string de tamanho ilimitado.
+// Para isso, a solução ideal envolve algoritmos de busca de padrão cujo
+// pré-processamento independa do tamanho do texto.
+// Nesta solução, foi implementado o algoritmo Knuth-Morris-Pratt (KMP). Sua
+// implementação consiste em computar uma tabela de match parcial e, com ela,
+// iterar pelo texto mantendo uma posição atual no padrão, que varia de acordo
+// com os valores da tabela. O conceito principal utilizado é que podem existir
+// no padrão prefixos que também são sufixos, que são a chave para não precisar
+// voltar atrás nunca no texto em busca do padrão.
+
 #include <string>
 #include <cstdio>
 #include <cstdlib>

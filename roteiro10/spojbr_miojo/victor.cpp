@@ -1,3 +1,11 @@
+// O problema consiste em determinar o intervalo mínimo de tempo para o qual,
+// usando duas ampulhetas, é possível medir com precisão uma certa duração.
+// O valor objetivo pode ser determinado através do mínimo entre duas equações
+// de congruência, sendo k a duração a ser medida e p e q a duração das duas
+// ampulhetas:
+// min(i * p, j * q) | i * p === k mod q,
+//                     j * q === k mod p
+
 #include <iostream>
 #include <algorithm>
 

@@ -1,3 +1,15 @@
+// O problema consiste em, dado dois segmentos de reta em R², verticais ou
+// horizontais, determinar se eles tem interseção e se essa interseção forma um
+// ponto ou segmento de reta. A solução que eu proponho trata dois casos
+// distintamente: se os segmentos tem direções iguais ou diferentes.
+// Se eles têm direções diferentes, basta determinar onde ficaria a interseção
+// entre as retas determinadas pelos segmentos e verificar se o ponto pertence
+// a ambos segmentos ou não.
+// Se eles têm a mesma direção, todos os três casos são possíveis. Um caso
+// particularmente perigoso é se um segmento termina onde outro começa, que
+// implica na interseção de apenas um ponto, mas exceto por isso a
+// implementação é direta.
+
 #include <iostream>
 #include <algorithm>
 

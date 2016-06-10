@@ -1,3 +1,8 @@
+// O problema consiste em encontrar a área da pintura na parede que está pintada
+// de vermelho. Essencialmente, basta, partindo do círculo mais externo, que é
+// vermelho (visto que o problema informa que a pintura externa aos círculos
+// é azul), somar e subtrair as áreas dos círculos alternadamente.
+
 #include <iostream>
 #include <vector>
 #include <cmath>
