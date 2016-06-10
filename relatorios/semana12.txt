@@ -1,0 +1,86 @@
+spoj_hangover
+Autor: Renato
+Solução:
+Para resolver esse problema, basta ir somando 1/i, 1/(i+1), 1/(i+2), etc...
+começando de i = 2, até essa soma ser > c. O resultado procurado é i-2.
+
+spoj_lineseg
+Autor: Victor
+Solução:
+O problema consiste em, dado dois segmentos de reta em R², verticais ou
+horizontais, determinar se eles tem interseção e se essa interseção forma um
+ponto ou segmento de reta. A solução que eu proponho trata dois casos
+distintamente: se os segmentos tem direções iguais ou diferentes.
+Se eles têm direções diferentes, basta determinar onde ficaria a interseção
+entre as retas determinadas pelos segmentos e verificar se o ponto pertence
+a ambos segmentos ou não.
+Se eles têm a mesma direção, todos os três casos são possíveis. Um caso
+particularmente perigoso é se um segmento termina onde outro começa, que
+implica na interseção de apenas um ponto, mas exceto por isso a
+implementação é direta.
+
+spojbr_cebola
+Autor: Lucas
+Solução:
+Recebemos todos os pontos na cebola e utilizamos o algoritmo de Gift wrapping
+(também conhecido como Jarvis march) para obter a casca convexa da cebola. Assim,
+obtemos a primeira camada. Removemos os pontos que estão nessa casca e repetimos
+o processo até que restem apenas pontos colineares na cebola, já que pontos
+colineares não podem formar um polígono de mais de dois lados. Ao fim de todo
+esse processo, teremos retirado todas as cascas, e no processo contado quantas
+cascas existem.
+
+spojbr_dvoronoi
+Autor: Renato
+Solução:
+Esse problema foi resolvido utilizando o produto misto. Dado os pontos a,
+b, c e d, podemos definir os vetores ba (b - a), ca (c - a) e da (d - a).
+Com isso, o produto misto, que é o volume do paralelepípedo dado pelos 3
+vetores, é fabs((ba cross ca) dot da). Dividindo isso por 6 encontramos o
+volume do tetraedro triangular.
+
+spojbr_elevador
+Autor: Jonatas
+Solução:
+A solução desse problema verifica primeiramente se a menor dimensão da caixa comporta a circunferência de maior diâmetro. Em caso negativo,
+imprime-se 'N'. No caso positivo, calculamos a maior distância possível entre os centros das circunferências, quando as elas são colocadas
+em extremidades diagonais, que é igual à √((L-R1-R2)^2 + (C-R1-R2)^2). Se esse valor for maior ou igual à soma dos dois raios R1 e R2, os
+círculos cabem na caixa e é impresso 'S'. Em caso contrário, imprime-se 'N'.
+
+uva_10065
+Autor: Victor
+Solução:
+O problema consiste em encontrar, primeiramente, a casca convexa para o
+polígono de entrada. Depois disso, é preciso simplesmente retornar a pro-
+porção entre área não utilizada e a área da casca.
+Para obter a casca convexa, foi utilizado o algoritmo de Gift Wrapping.
+Esse algoritmo parte de um ponto que sempre faz parte da casca convexa
+(no caso, o ponto mais à esquerda do plano) e, então, itera por todos
+os pontos repetidamente, em busca do ponto que faz o vetor com ângulo
+mais anti-horário com o ponto de referência da casca. O algoritmo re-
+pete o procedimento até encontrar o ponto inicial novamente (dar a
+volta completa).
+
+uva_10221
+Autor: Lucas
+Solução:
+Para calcular a distância de arco entre os satélites basta multiplicar o raio da
+órbita (s + raio da terra) e o ângulo entre eles em radianos. Para o cálculo da
+distância de corda, utilizamos um pouco de trigonometria: se dividirmos o triângulo
+formado pelos dois satélites e o centro da Terra em dois utilizando sua bissetriz
+em relação ao ângulo dado, teremos dois triângulos retângulos. Calculamos o
+seno da metade do ângulo dado e multiplicamos pelo raio da órbita, e isso nos dará
+metade de distância de corda entre os satélites. Basta agora multiplicar o
+resultado por 2.
+
+uva_11152
+Autor: Jonatas
+Solução:
+A solução desse problema inicia-se calculando o semi-perímetro do triângulo, que é igual a s = (a + b + c)/2. Utiliza-se a
+fórmula de Heroen para calcular a área do triângulo a partir do valor dos lados do mesmo (A = √s*(s-a)*(s-b)*(s-c)).
+Temos que o raio do círculo circunscrito é igual a R = (a*b*c)/(4*A) e que o do círculo inscrito é r = A/s. Após isso,
+calcula-se as áreas de cada elemento (círculo externo, triângulo e círculo interno) e imprime-se:
+* A área do círculo externo subtraída da área do triângulo;
+* A área do triângulo subtraída da área do círculo interno; e
+* A área do círculo interno.
+

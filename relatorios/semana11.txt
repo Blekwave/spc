@@ -1,0 +1,69 @@
+codeforces_157b
+Autor: Victor
+Solução:
+O problema consiste em encontrar a área da pintura na parede que está pintada
+de vermelho. Essencialmente, basta, partindo do círculo mais externo, que é
+vermelho (visto que o problema informa que a pintura externa aos círculos
+é azul), somar e subtrair as áreas dos círculos alternadamente.
+
+spojbr_caixamg
+Autor: Jonatas
+Solução:
+A solução desse problema toma as dimensões A e B do retângulo e a função que determina o volume da caixa que é
+(A-2x)*(B-2x)*x = 4x^3 - 2x^2*(A+B) + x*(A*B). Tendo essa função, para obtermos o volume máximo, simplesmente
+tomamos a função de volume e derivamos uma vez, obtendo 12*x^2 - 4x*(A+B) + AB, e igualamos a 0.
+Dessa forma, temos dois valores e, aplicando à fórmula do volume, o que apresenta o maior resultado é
+impresso na console.
+
+spojbr_furos
+Autor: Jonatas
+Solução:
+A solução desse problema toma cada ponto da placa e calcula a distância para os demais pontos, armazendo a maior distância.
+Com essas maiores distâncias, seleciona-se a menor delas, que é o raio da peça (a distância entre os centros dos dois furos).
+Como cada furo tem 5 milímetros de diâmetro, adiciona-se 2,5 milímetros ao raio e calcula-se o valor final sendo igual a
+[2*(raio + 2,5)] que é a resposta final impressa na console.
+
+spojbr_meteoro
+Autor: Jonatas
+Solução:
+A solução desse problema simplesmente verifica se a coordenada dos pontos dados estão dentro dos limites dados. Se a coordenada
+x do ponto for maior ou igual à coordenada x do canto superior e menor ou igual à coordenada x do canto inferior, além da
+coordendada y do ponto ser maior ou igual à coordenada y do canto inferior e menor ou igual à coordenada y do canto superior,
+tem-se um ponto válido. Incrementa-se um contador de meteoritos para cada ponto válido e imprime-se esse contador na console ao
+terminar de analisar todos os pontos dados.
+
+spojbr_nlogonia
+Autor: Victor
+Solução:
+O problema consiste em determinar em qual quadrante uma coordenada está, ou
+se ela se situa em algum eixo do plano cartesiano. A solução é trivial, com
+algumas comparações.
+
+uva_10263
+Autor: Lucas
+Solução:
+Para cada caso de teste, recebemos a posição M, o número de segmentos e o início
+do primeiro segmento. A partir daí, para cada novo ponto, descobrimos o ponto do
+segmento determinado pelos últimos dois pontos dados que está mais próximo de M,
+fazendo um vetor que vai de M até o ponto inicial do segmento e retirando desse
+vetor a componente paralela à reta. Armazenamos o ponto dos segmentos que for mais
+próximo de M, e temos assim o resultado.
+
+uva_10310
+Autor: Lucas
+Solução:
+A solução do problema é bastante simples: lemos a posição do cachorro e do roedor,
+e para cada buraco recebido, calculamos a distância de ambos até o buraco. Caso a
+distância do roedor ao buraco seja menor que metade da distância do cachorro até o
+buraco (dado que ele corre com o dobro da velocidade), encontramos uma saída possível
+e exibimos na tela.
+
+uva_11505
+Autor: Jonatas
+Solução:
+A solução desse problema toma a posição inicial da tartaruga como (0,0) e, a cada comando, atualiza a coordenada ou ângulo da mesma.
+O ângulo é obtido através da soma, quando o comando é 'lt', ou da subtração, quando o comando é 'rt', módulo 360 com o valor dado. Para
+atualizar as coordenadas, soma-se ou subtrai-se as coordendas correntes, sendo que o deslocamento em x é d*cos(âng.) e em y é d*sin(âng.),
+onde âng é o valor do ângulo atual. Quando o comando é 'fd' soma-se as coordendas e quando é 'bk' realiza-se a subtração. Ao término dos
+comandos, temos uma nova posição e, calculando-se a distância desta com a posição (0,0) inicial, temos a resposta do problema.
+

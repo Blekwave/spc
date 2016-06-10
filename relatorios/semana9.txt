@@ -1,0 +1,86 @@
+codeforces_CF50B
+Autor: Jonatas
+Solução:
+A solução desse problema percorre os caracteres da string da entrada e insere e um map e, no caso do
+caractere já estar no map, o indice dele no map é incrementado. Após isso, o algoritmo percorre cada
+posição do map e incrementa o contador do número de pares ordenados existentes com o valor da posição
+do map ao quadrado. Depois de percorrer o map, o programa imprime o valor encontrado na console.
+
+spoj_findsr
+Autor: Victor
+Solução:
+O problema envolve encontrar as "string roots" de uma string, ou seja, o
+menor trecho que, concatenado consigo mesmo um número inteiro de vezes,
+forma a string original. Para encontrar tal valor, a solução proposta
+itera pelos divisores do comprimento da string (visto que a raiz da
+string tem que ter tamanho divisor do comprimento da string principal
+ou então é impossível que ela forme a string original ao ser multiplicada
+por um número inteiro) em ordem crescente.
+Para cada divisor d, o algoritmo checa se os primeiros d caracteres da string
+se repetem ao longo da string inteira. Caso isso ocorra, os primeiros d
+caracteres formam uma string root e, portanto, essa string, concatenada
+len(string)/d vezes forma a string original. O algoritmo sempre para, pois
+no pior caso, a string inteira é a sua raiz.
+
+spoj_nhay
+Autor: Victor
+Solução:
+O problema consiste em encontrar padrões em uma string de tamanho ilimitado.
+Para isso, a solução ideal envolve algoritmos de busca de padrão cujo
+pré-processamento independa do tamanho do texto.
+Nesta solução, foi implementado o algoritmo Knuth-Morris-Pratt (KMP). Sua
+implementação consiste em computar uma tabela de match parcial e, com ela,
+iterar pelo texto mantendo uma posição atual no padrão, que varia de acordo
+com os valores da tabela. O conceito principal utilizado é que podem existir
+no padrão prefixos que também são sufixos, que são a chave para não precisar
+voltar atrás nunca no texto em busca do padrão.
+
+spojbr_encotel
+Autor: Lucas
+Solução:
+Para resolver o problema, basta passarmos por cada caractere da entrada e trocar
+cada símbolo pelo número correspondente quando necessário. Para isso, medimos a
+distância entre os caracteres e dependendo dela escolhemos qual número inserir.
+Caso não seja adequado inserir um número na posição, apenas repetimos o caractere
+lido (0, 1 ou -).
+
+spojbr_poodlemg
+Autor: Renato
+Solução:
+Esse problema foi resolvido com um simples algoritmo: se o número de páginas
+for menor que 6, o resultado é modificaod para 6. Se for maior que 20, o
+resultado é modificado para 20. Caso ficar nesse meio termo, a quantidade
+de o's a imprimir é (numPaginas - 4).
+
+uva_941
+Autor: Lucas
+Solução:
+Recebemos a string e a permutação desejada. A string é ordenada e a função de
+geração da permutação calcula qual o caractere correto para cada posição. Para
+uma dada posição, escolhemos o n-ésimo caractere da string ordenada e o removemos,
+sendo que n é igual à permutação escolhida divida pela quantidade de permutações
+possíveis para o restante da string. Para definir o restante dos caracteres, usamos
+o mesmo método para o restante da string, escolhendo a permutação igual ao módulo da
+permutação anterior pela quantidade de permutações possíveis nesse restante.
+
+uva_10008
+Autor: Renato
+Solução:
+Esse problema foi resolvido usando uma árvore binária de busca (std::map)
+para armazenar a frequência dos caracteres. Após isso, os resultados eram
+passados para uma outra árvore (std::set), nesse caso ordenada na ordem
+pedida.
+No final, é necessário apenas imprimir os resultados da segunda árvore.
+Note que todos os caracteres são convertidos para uppercase antes de serem
+adicionados na árvore e caracteres que não são letras são ignorados.
+
+uva_11385
+Autor: Jonatas
+Solução:
+A solução desse primeiramente calcula os números de Fibonnaci até o 44º, que é o maior número garantido pela entrada.
+Após isso, o programa lê a sequência de números e a string da entrada. Utilizando o método dado pelo problema, cada
+caractere da entrada é lido e seu índice na sequência de Fibonnaci é encontrado. Ao encontrar esse valor, temos a
+a posição do caractere na string de saída, ele é então colocado na posição e isso é realizado para todos os caracteres
+até que temos a string de saída pronta e ela é impressa na console.
+
+

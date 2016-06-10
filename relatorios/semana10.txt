@@ -1,0 +1,73 @@
+spoj_prime1
+Autor: Victor
+Solução:
+O problema proposto é simples: determinar todos os primos entre dois números
+inteiros. No entanto, os altos limites para as entradas do problema fazem
+com que um simples crivo de Eratóstenes se torne inviável, tanto em memória
+quanto em tempo.
+A solução é implementar o crivo de Eratóstenes segmentado, que verifica os
+números primos em blocos. Por exemplo, ele computaria os primos entre 0 e
+1000 com blocos de 100 números verificando primeiramente os primos entre
+0 e 100, depois 101 a 200 e assim em diante. Esse algoritmo, no entanto,
+necessita de uma lista dos primos até sqrt(n), sendo n o limite para o qual
+se quer os primos. Por isso, portanto, implementei também o crivo conven-
+cional, para alimentar a primeira chamada ao crivo segmentado. Retrospecti-
+vamente, bastaria uma lista dos primos até um valor pequeno.
+
+spojbr_calcadmg
+Autor: Jonatas
+Solução:
+A solução desse problema toma as coordenadas do ponto de origem P(xp,yp) e D(xd,yd) e busca o número de k de passos
+que chega ao destino somando valores inteiros às coordenadas do ponto de origem, sendo esses inteiros os menores
+possíveis. Para isso, temos que essa quantidade de passos deve dividir tanto o módulo de (xd-xp) quanto (yd-xp).
+Ou seja, o valor de k é exatamente o MDC desses dois módulos. O algoritmo realiza esse cálculo e imprime na console.
+
+spojbr_comcamel
+Autor: Jonatas
+Solução:
+A solução desse problema toma uma expressão aritmética com operações de multiplicação e adição e encontra o maior e o menor
+resultado possível de ser obtido dessa expressão, fazendo as operações na ordem desejada. Para obter o maior resultado basta
+que o algoritmo dê prioridade à operação de adição e, após que ela seja realizada, fazer as operações de multiplicação. Para
+encontrar o menor resultado, o algortimo realiza as operações de multiplicação primeiro e, após realizá-las, faz as adições.
+Uma vez realizados esses cálculos, o programa exibe o resultado na console.
+
+spojbr_miojo
+Autor: Victor
+Solução:
+O problema consiste em determinar o intervalo mínimo de tempo para o qual,
+usando duas ampulhetas, é possível medir com precisão uma certa duração.
+O valor objetivo pode ser determinado através do mínimo entre duas equações
+de congruência, sendo k a duração a ser medida e p e q a duração das duas
+ampulhetas:
+min(i * p, j * q) | i * p === k mod q,
+                    j * q === k mod p
+
+spojbr_onze
+Autor: Renato
+Solução:
+Esse problema utilizou-se do fato que se a soma alternada dos dígitos de um
+número, da direita pra esquerda, for divisível por 11, então o número
+original é divisível por 11.
+
+uri_1022
+Autor: Lucas
+Solução:
+As operações com números racionais podem ser feitas utilizando as regras já conhecidas
+para isso. Para simplificar o resultado, basta descobrir o mdc entre numerador e
+denominador e dividí-los por esse mdc.
+
+uva_1028
+Autor: Renato
+Solução:
+Esse problema foi resolvido através do simples cálculo do MDC entre os dois
+números de entrada usando o algoritmo de euclides.
+
+uva_10079
+Autor: Lucas
+Solução:
+A quantidade Q de fatias na qual podemos dividir uma pizza com N cortes é dada
+pela seguinte fórmula de recorrência: Q(N) = Q(N - 1) + N; Q(0) = 1. Essa
+fórmula pode ser vista obviamente como a soma dos valores de 1 até N mais 1.
+Usando a fórmula de soma de uma progressão aritmética, temos a fórmula direta
+1 + (N + 1) * N/2.
+
